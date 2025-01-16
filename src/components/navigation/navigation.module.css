@@ -1,0 +1,52 @@
+.nav {
+    height: 100px;
+    width: 100vw;
+}
+
+.navBar {
+    height: 100px;
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    height: 100%;
+    width: auto;
+}
+
+.logo img {
+    /* width: 100%; */
+    width: 270px;
+    height: 100%;
+}
+
+.dropdown {
+    top: -100%;
+    position: absolute;
+}
+
+@media screen and (min-width: 1024px) {
+    .dropdown, .bars {
+        display: none;
+    }
+    .menus {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+    }
+    .menus a {
+        text-align: center;
+        /* font-weight: 800; */
+        font-size: 32px;
+    }
+    .menus a:last-of-type {
+        background-color: #1810f2;
+        padding: 10px 25px;
+        border-radius: 100rem;
+    }
+    .menuIcon {
+        font-size: 1.25rem;
+    }
+}
