@@ -4,8 +4,12 @@ import styles from './navigation.module.css';
 import { FaBars, FaXmark, FaPhone } from 'react-icons/fa6';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const Navigation = () => {
+
+    const pathname = usePathname();
+    const [isOpen, setIsOpen] = useState(false);
 
     let menu = [
         { 
@@ -22,7 +26,7 @@ const Navigation = () => {
         },
         { 
             name: 'Sponsorer', 
-            link: '/'
+            link: '/sponsors'
         },
         { 
             name: 'Kontakt', 
@@ -31,7 +35,7 @@ const Navigation = () => {
         },
     ]
 
-    const [isOpen, setIsOpen] = useState(false);
+    
 
     return (
 
@@ -48,7 +52,7 @@ const Navigation = () => {
 
                     <div className={styles.menus}>
                         {menu.map( (menu, index) => (
-                            <Link key={index} href={menu.link}>{menu.icon ? menu.icon : ''} {menu.name}</Link>
+                                <Link key={index} href={menu.link} className={pathname === menu.link ? styles.active : ''}>{menu.icon ? menu.icon : ''} {menu.name}</Link>
                         ))}
                     </div>
 
