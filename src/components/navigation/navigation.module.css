@@ -1,13 +1,13 @@
 .nav {
-    /* height: 100%; */
     width: 100vw;
     position: absolute;
+    /* overflow: hidden; */
 }
 
 .navBar {
     height: 100%;
     display: flex;
-    padding: 30px 50px;
+    padding: 20px;
     align-items: center;
     justify-content: space-between;
     z-index: 10;
@@ -20,25 +20,26 @@
 }
 
 .logo img {
-    /* width: 100%; */
-    width: 270px;
+    width: 240px;
     height: 100%;
 }
 
 .dropdown {
-    top: -100%;
     position: absolute;
+    z-index: 105;
     background-color: #1810f2;
     width: 100%;
     height: auto;
+    top: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    transition: transform 0.5s ease-in-out;    
+    transform: translateX(100%);
 }
 .dropdown.open{
-    top: 116px;
-    transition: all 0.5s ease-in-out;
+    transform: translateX(0);
 }
 .dropdown a {
     color: white;
@@ -47,30 +48,48 @@
     width: 100%;
     text-align: center;
     transition: all 0.25s ease-in-out;
+    position: relative;
 }
+.dropdown a:hover {
+    background-color: white;
+    color: black;
+}
+.dropdown a.active {
+    font-weight: 800;
+}
+
 
 .nav .navBar .actions .menus a {
     color: white;
-    transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in;
+    position: relative;
 }
 
 .nav .navBar .actions .menus a.active {
     font-weight: 700;
-    position: relative;
 }
-.nav .navBar .actions .menus a.active:after {
+.nav .navBar .actions .menus a::after {
     content: "";
-    width: 100%;
+    width: 0;
     background-color: #1810f2;
     height: 5px;
     border-radius: 50rem;
     margin-top:2.5px;
     display: block;
     position: absolute;
+    transition: width 0.25s ease-in;
 }
+.nav .navBar .actions .menus a.active::after {
+    width: 100%;
+}
+
 
 .menus {
     display: none;
+}
+
+.bars {
+    font-size: 2rem;
 }
 
 
@@ -97,5 +116,12 @@
     }
     .menuIcon {
         font-size: 1rem;
+    }
+
+    .logo img {
+        width: 270px;
+    }
+    .navBar {
+        padding: 30px 50px;
     }
 }

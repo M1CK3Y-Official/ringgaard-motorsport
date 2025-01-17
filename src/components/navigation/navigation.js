@@ -61,7 +61,7 @@ const Navigation = () => {
 
             <div className={`${styles.dropdown} ${isOpen ? styles.open : ''}`}>
                 {menu.map( (menu, index) => (
-                    <Link key={index} href={menu.link}>{menu.name}</Link>
+                    <Link key={index} href={menu.link} className={pathname === menu.link ? styles.active : ''}>{menu.name}</Link>
                 ))}
             </div>
 
