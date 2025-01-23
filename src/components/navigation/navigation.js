@@ -1,41 +1,30 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './navigation.module.css';
-import { FaBars, FaXmark, FaPhone } from 'react-icons/fa6';
+import { FaBars, FaXmark } from 'react-icons/fa6';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { getMenuData } from '@/services/data.service';
 
 const Navigation = () => {
 
     const pathname = usePathname();
     const [isOpen, setIsOpen] = useState(false);
+    const [menuData, setMenuData] = useState([]);
 
-    let menu = [
-        { 
-            name: 'Forside', 
-            link: '/'
-        },
-        { 
-            name: 'Bilen', 
-            link: '/car'
-        },
-        { 
-            name: 'Om mig', 
-            link: '/about'
-        },
-        { 
-            name: 'Sponsorer', 
-            link: '/sponsors'
-        },
-        { 
-            name: 'Kontakt', 
-            link: '/contact',
-            icon: <FaPhone className={styles.menuIcon}/>
-        },
-    ]
-
-    
+    useEffect( () => {
+        const getData = async () => {
+            try {
+                const data = await getMenuData();
+                console.log("Data fetched:", data);
+                setMenuData(data);
+            } catch (error) {
+                console.log("Error fetching menu data:", error);
+            }
+        }
+        getData();
+    }, []);
 
     return (
 
@@ -51,16 +40,18 @@ const Navigation = () => {
                     {isOpen !== true ? <FaBars className={styles.bars} onClick={ () => setIsOpen(!isOpen)} /> : <FaXmark className={styles.bars} onClick={ () => setIsOpen(!isOpen)} />}
 
                     <div className={styles.menus}>
-                        {menu.map( (menu, index) => (
-                                <Link key={index} href={menu.link} className={pathname === menu.link ? styles.active : ''}>{menu.icon ? menu.icon : ''} {menu.name}</Link>
-                        ))}
+                        {menuData.map( (menu, index) => (
+
+                                <Link key={index} href={menu.link} className={pathname === menu.link ? styles.active : ''}>{menu.icon && <span className={styles.menuIcon}>{menu.icon}</span>} {menu.name}</Link>
+                            
+                            ))}
                     </div>
 
                 </div>
             </div>
 
             <div className={`${styles.dropdown} ${isOpen ? styles.open : ''}`}>
-                {menu.map( (menu, index) => (
+                {menuData.map( (menu, index) => (
                     <Link key={index} href={menu.link} className={pathname === menu.link ? styles.active : ''}>{menu.name}</Link>
                 ))}
             </div>

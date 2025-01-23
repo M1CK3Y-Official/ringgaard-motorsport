@@ -12,14 +12,14 @@
 
 html,
 body {
-  
+  scroll-behavior: smooth;
 }
 
 body {
   scroll-behavior: smooth;
   overflow-x: hidden;
   overflow-y: scroll;
-  max-width: 100%;
+  /* max-width: 100%; */
 }
 
 * {

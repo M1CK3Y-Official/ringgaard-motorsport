@@ -1,5 +1,6 @@
 import Navigation from "@/components/navigation/navigation";
 import styles from './layout.module.css';
+import Footer from "@/components/footer/footer";
 
 export default function siteLayout({children}) {
     return <>
@@ -8,6 +9,7 @@ export default function siteLayout({children}) {
             <div className={styles.layout}>
             {children}
             </div>
+            <Footer />
         </div>
     </>
 }
