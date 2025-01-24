@@ -71,11 +71,12 @@
 
 .menus {
     display: flex;
-    gap: 1em;
+    gap: 0.5em;
     /* flex-direction: column; */
     /* justify-content: end; */
     /* align-items: end; */
     grid-area: menus;
+    font-size: clamp(1rem, 0.7608rem + 1.0204vw, 1.25rem);
 }
 
 .menus a {

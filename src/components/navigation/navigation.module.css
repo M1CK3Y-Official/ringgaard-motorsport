@@ -100,16 +100,17 @@
     .menus {
         display: flex;
         align-items: center;
-        gap: 1.5rem;
+        gap: clamp(1.25rem, 0.9643rem + 0.4464vw, 1.5rem);
     }
     .menus a {
         text-align: center;
         /* font-weight: 800; */
-        font-size: 1.75rem
+        /* font-size: 1.75rem */
+        font-size: clamp(1.25rem, 0.6786rem + 0.8929vw, 1.75rem);
     }
     .menus a:last-of-type {
         background-color: #1810f2;
-        padding: 10px 25px;
+        padding: 0.35em 0.85em;
         border-radius: 100rem;
         font-weight: 700;
     }
