@@ -2,22 +2,22 @@
 import Image from 'next/image';
 import styles from './footer.module.css';
 import Link from 'next/link';
-import { FaFacebook, FaInstagram  } from 'react-icons/fa6';
+import { FaFacebookF, FaInstagram, FaTiktok, FaYoutube  } from 'react-icons/fa6';
 import { useState, useEffect } from 'react';
-import { getMenuData } from '@/services/data.service';
+import { getFooterData } from '@/services/data.service';
 
 const Footer = () => {
 
-    const [menuData, setMenuData] = useState([]);
+    const [footerData, setFooterData] = useState([]);
     
         useEffect( () => {
             const getData = async () => {
                 try {
-                    const data = await getMenuData();
+                    const data = await getFooterData();
                     console.log("Data fetched:", data);
-                    setMenuData(data);
+                    setFooterData(data);
                 } catch (error) {
-                    console.log("Error fetching menu data:", error);
+                    console.log("Error fetching footer data:", error);
                 }
             }
             getData();
@@ -28,21 +28,59 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.logo}>
-        <Link href='/'><Image src="/logos/Blue/Logo_Landscape.svg" alt="logo" width={2691} height={517} /></Link>
+        <Link href='/'><Image src="/logos/White/Logo_Landscape_White.svg" alt="logo" width={2691} height={517} /></Link>
       </div>
-      <div className={styles.middleContainer}>
-        <div className={styles.socials}>
-            <Link href='https://www.facebook.com/MathiasRinggaardMotorsport' target='_blank'><FaFacebook className={styles.icon}/></Link>
-            <Link href='https://www.instagram.com/Mathias_Ringgaard_Motorsport' target='_blank'><FaInstagram className={styles.icon}/></Link>
+      
+      <div className={styles.container}>
+
+        <div className={styles.footerLeft}>
+
+            {footerData.map( (footerItem) => {
+              return ( <div key={footerItem.id} className={styles.footerMenu}>
+                <h3 className={styles.footerHeading}>{footerItem.name}</h3>
+                <div className={styles.menus}>
+
+                {footerItem.menus.map( (menu, index) => {
+                  return (
+                    <Link key={index} href={menu.link}>{menu.name}</Link>
+                  );
+                })}
+
+                </div>
+              </div>
+              );
+            })}
+          
         </div>
-        <hr className={styles.divider}/>
-        <div className={styles.text}>&#169; 2025 Mathias Ringgaard Motorsport</div>
+
+        <div className={styles.footerRight}>
+          <div className={styles.footerFollow}>
+
+            <h3 className={styles.footerHeading}>Følg os</h3>
+
+            <div className={styles.newsletterField}>
+              <input className={styles.newsletterInput} type="email" placeholder="Indtast din email" />
+              <button className={styles.newsletterSend}>Tilmeld</button>
+            </div>
+
+            <div className={styles.footerSocials}>
+              <Link href='https://www.facebook.com/MathiasRinggaardMotorsport' target='_blank'><FaFacebookF className={styles.icon} /></Link>
+              <Link href='https://www.instagram.com/Mathias_Ringgaard_Motorsport' target='_blank'><FaInstagram className={styles.icon} /></Link>
+              <Link href='https://www.tiktok.com/@mathiasringgaard56' target='_blank'><FaTiktok className={styles.icon} /></Link>
+              <Link href='https://www.youtube.com/channel/UCyde5KRpJY6RZJ64SczI1vw' target='_blank'><FaYoutube className={styles.icon} /></Link>
+            </div>
+
+          </div>
+        </div>
+      
+      
+
       </div>
-      <div className={styles.menus}>
-        {menuData.map( (menu, index) => (
-          <Link key={index} href={menu.link}>{menu.name}</Link>
-        ))}
+
+      <div className={styles.footerBottom}>
+        <p>&copy; 2025 Mathias Ringgaard Motorsport. All rights reserved</p>
       </div>
+
     </footer>
   )
 };
