@@ -4,8 +4,6 @@
     background-color: #262626;
     min-height: 100px;
     display: grid;
-    /* grid-template-rows: repeat(2, 1fr); */
-    
 }
 
 .container {
@@ -24,8 +22,6 @@
 }
 
 .footerLeft {
-    /* display: grid;
-    grid-template-columns: repeat(3, 1fr); */
     display: flex;
     gap: 50px;
 }
@@ -56,6 +52,14 @@
 }
 
 .menus a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.menus a:hover {
+    color: #3498db;
+  transform: translateX(5px);
 
 }
 .footerMenu h3 {
@@ -76,6 +80,7 @@
     text-align: center;
     border-top: 2px solid #808080;
     font-size: 14px;
+    background-color: #1a1a1a;
 }
 
 .text {
@@ -105,31 +110,39 @@
 }
 
 .newsletterSend {
-    background-color: #1810f2;
+    background-color: rgb(24, 16, 242);
     border-radius: 5px;
     outline: none;
     border: none;
     padding: 0 25px;
     font-size: 20px;
+    transition: all 0.3s ease;
 }
 
 .newsletterSend:hover {
-    background-color: #0d0b9b;
+    background-color: rgba(24, 16, 242, 0.8);
+    transform: translateY(-5px);
 }
 
 .footerFollow {
-    /* display: flex; */
     width: 550px;
 }
 
 .footerSocials a {
-    width: 32px;
     display: flex;
     aspect-ratio: 1;
-    border: 2px solid white;
     border-radius: 50%;
     justify-content: center;
     align-items: center;
+    padding: 0.75rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.footerSocials a:hover {
+    color: #463ff4;
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px);
 }
 
 .footerSocials {
@@ -146,16 +159,11 @@
 
 
 @media screen and (min-width:768px) {
-    .footer {
-
-    }
+    
     
     .logo img {
         width: clamp(12.0625rem, 7.6042rem + 9.2882vw, 18.75rem);
         height: 100%;
     }
     
-    .menus {
-
-    }
 }

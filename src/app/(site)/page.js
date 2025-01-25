@@ -7,12 +7,7 @@ export default function Page() {
 
         <div className={styles.container}>
             <Hero></Hero>
-            hehe
-            heheheh
-            hehe
-            <br></br>
-            gheeg
-            <div id='introduction'>fefe</div>
+            <div id='introduction' className={styles.introduction}>fefe</div>
             {/* <Introduction></Introduction> */}
             {/* <Newsletter></Newsletter> */}
         </div>
