@@ -3,7 +3,7 @@ import styles from './layout.module.css';
 import Footer from "@/components/footer/footer";
 import ToTopBtn from "@/components/totopbtn/totopbtn";
 
-export default function siteLayout({children}) {
+export default function siteLayout({children}) { 
     return (
     <>
         <div className={styles.body}>

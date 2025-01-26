@@ -1,17 +1,30 @@
 .nav {
     width: 100vw;
-    position: absolute;
+    position: fixed;
+    z-index: 999;
     top: 0;
+    left: 0;
+}
+
+.nav.sticky {
+    position: fixed;
+    z-index: 999;
 }
 
 .navBar {
-    height: 100%;
     display: flex;
-    padding: 20px;
+    padding: clamp(1.25rem, 0.8889rem + 1.5408vw, 1.875rem) clamp(1.25rem, 0.1666rem + 4.6225vw, 3.125rem);
     align-items: center;
     justify-content: space-between;
     z-index: 10;
+    top: 0;
+    background: none;
     position: relative;
+    transition: background 0.25s cubic-bezier(0.65, 0, 0.35, 1), padding 0.5s cubic-bezier(0.25, 1, 0.5, 1) 0.25s;
+}
+.navBar.sticky {
+    padding: 10px clamp(1.25rem, 0.8889rem + 1.5408vw, 1.875rem);
+    background: rgba(0, 0, 0, 0.5);
 }
 
 .logo {
@@ -20,23 +33,23 @@
 }
 
 .logo img {
-    width: 240px;
+    width: clamp(15rem, 14.5449rem + 1.9417vw, 16.875rem);
     height: 100%;
 }
 
 .dropdown {
-    position: absolute;
+    position: fixed;
     z-index: 105;
     background-color: #1810f2;
     width: 100%;
     height: auto;
-    top: 100%;
+    /* top: 100%; */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    transition: transform 0.5s ease-in-out;    
     transform: translateX(100%);
+    transition: transform 0.5s ease-in-out;  
 }
 .dropdown.open{
     transform: translateX(0);
@@ -44,12 +57,18 @@
 .dropdown a {
     color: white;
     font-size: 1.5rem;
-    padding: 20px 0;
+    padding: 10px 0;
     width: 100%;
     text-align: center;
     transition: all 0.25s ease-in-out;
     position: relative;
 }
+
+.overlay.open {
+    opacity: 1;
+    pointer-events: all;
+}
+
 .dropdown a:hover {
     background-color: white;
     color: black;
@@ -58,10 +77,20 @@
     font-weight: 800;
 }
 
+.overlay {
+    position: fixed;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.5s cubic-bezier(.5,0,.5,1);
+}
 
 .nav .navBar .actions .menus a {
     color: white;
-    transition: all 0.25s ease-in;
     position: relative;
 }
 
@@ -98,6 +127,13 @@
     .dropdown, .bars {
         display: none;
     }
+
+    .dropdown.active {
+        display: none;
+    }
+
+
+
     .menus {
         display: flex;
         align-items: center;
@@ -105,24 +141,16 @@
     }
     .menus a {
         text-align: center;
-        /* font-weight: 800; */
-        /* font-size: 1.75rem */
         font-size: clamp(1.25rem, 0.6786rem + 0.8929vw, 1.75rem);
     }
     .menus a:last-of-type {
         background-color: #1810f2;
-        padding: 0.35em 0.85em;
-        border-radius: 100rem;
+        padding: 0.25em 0.85em;
+        border-radius: 5px;
         font-weight: 700;
     }
     .menuIcon {
         font-size: 1rem;
     }
 
-    .logo img {
-        width: 270px;
-    }
-    .navBar {
-        padding: 30px 50px;
-    }
 }

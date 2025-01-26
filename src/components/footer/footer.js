@@ -56,7 +56,7 @@ const Footer = () => {
         <div className={styles.footerRight}>
           <div className={styles.footerFollow}>
 
-            <h3 className={styles.footerHeading}>Følg os</h3>
+            <h3 className={styles.footerHeading}>Tilmeld nyhedsbrev</h3>
 
             <div className={styles.newsletterField}>
               <input className={styles.newsletterInput} type="email" placeholder="Indtast din email" />
