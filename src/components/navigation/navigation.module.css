@@ -1,9 +1,11 @@
 .nav {
-    width: 100vw;
+    width: 100%;
     position: fixed;
     z-index: 999;
     top: 0;
-    left: 0;
+    max-width: 1920px;
+    margin: 0 auto;
+    
 }
 
 .nav.sticky {
@@ -21,10 +23,13 @@
     background: none;
     position: relative;
     transition: background 0.25s cubic-bezier(0.65, 0, 0.35, 1), padding 0.5s cubic-bezier(0.25, 1, 0.5, 1) 0.25s;
+
+    max-width: 1920px;
+    margin: 0 auto;
 }
 .navBar.sticky {
     padding: 10px clamp(1.25rem, 0.8889rem + 1.5408vw, 1.875rem);
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.75);
 }
 
 .logo {

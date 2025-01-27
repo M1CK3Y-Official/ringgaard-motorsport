@@ -1,0 +1,39 @@
+.title {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.form {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25em;
+}
+
+.form input {
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    outline: none;
+    border: 2px solid #1810f2;
+    resize: none;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.form input::placeholder {
+    opacity: 0.75;
+}
+
+.form button {
+    height: 50px;
+    background-color: #1810f2;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    max-width: 200px;
+}

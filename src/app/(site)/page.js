@@ -1,6 +1,7 @@
 import Footer from '@/components/footer/footer';
 import styles from './page.module.css';
 import Hero from '@/components/hero/hero';
+import Car from '@/components/car/car';
 
 export default function Page() {
 
@@ -22,6 +23,7 @@ export default function Page() {
             </div>
             {/* <Introduction></Introduction> */}
             {/* <Newsletter></Newsletter> */}
+            {/* <Car></Car> */}
         </div>
 
     )

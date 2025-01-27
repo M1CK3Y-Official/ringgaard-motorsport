@@ -1,0 +1,35 @@
+.container {
+    height: auto;
+    width: 100%;
+    display: flex;
+    padding: 50px;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.carContainer {
+    height: auto;
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* align-items: center; */
+    padding: 50px;
+    background: #000;
+    margin: 0 auto;
+    gap: 5px;
+}
+
+.carContainer h1 {
+    /* text-align: center; */
+    margin-bottom: 25px;
+}
+
+.carContainer .column {
+    display: flex;
+    /* flex-direction: row; */
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
