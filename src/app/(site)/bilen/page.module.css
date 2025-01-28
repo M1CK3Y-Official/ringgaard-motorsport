@@ -3,7 +3,7 @@
 }
 
 .hero {
-    height: 35vh;
+    /* height: 35vh; */
     max-width: 768px;
     width: 100vw;
     overflow: hidden;

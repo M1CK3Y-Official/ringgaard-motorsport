@@ -1,7 +1,7 @@
-import Navigation from "@/components/navigation/navigation";
+import Navigation from "@/components/(site)/navigation/navigation";
 import styles from './layout.module.css';
-import Footer from "@/components/footer/footer";
-import ToTopBtn from "@/components/totopbtn/totopbtn";
+import Footer from "@/components/(site)/footer/footer";
+import ToTopBtn from "@/components/(site)/totopbtn/totopbtn";
 
 export default function siteLayout({children}) { 
     return (

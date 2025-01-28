@@ -1,7 +1,7 @@
-import Footer from '@/components/footer/footer';
+import Footer from '@/components/(site)/footer/footer';
 import styles from './page.module.css';
-import Hero from '@/components/hero/hero';
-import Car from '@/components/car/car';
+import Hero from '@/components/(site)/hero/hero';
+import Car from '@/components/(site)/car/car';
 
 export default function Page() {
 

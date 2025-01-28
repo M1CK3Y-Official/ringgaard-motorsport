@@ -55,7 +55,7 @@
 }
 .dropdown a {
     color: white;
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 0.8555rem + 0.6163vw, 1.25rem);
     padding: 10px 0;
     width: 100%;
     text-align: center;

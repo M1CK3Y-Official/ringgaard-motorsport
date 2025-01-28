@@ -126,10 +126,14 @@ export async function createCar(data) {
     try {
         const newCar = await prisma.cars.create({
             data: {
+                image: data.image,
                 name: data.name,
-                engine_type: data.engine_type,
+                model: data.model,
+                weight: data.weight,
+                engine: data.engine,
                 horsepower: data.horsepower,
-                weight: data.weight
+                topspeed: data.topspeed,
+                acceleration: data.acceleration,
             }
         });
         return newCar;

@@ -14,11 +14,15 @@ datasource db {
 }
 
 model cars {
-  id          Int      @id @default(autoincrement()) // Primærnøgle
-  name        String   // @db-VarChar(255) // Bilens navn eller model
-  engine_type String   // 3-cylinder eller 4-cylinder
-  horsepower  Int      // Motorens HK
-  weight      Int      // Vægt i kg
-  createdAt   DateTime @default(now()) // Timestamp for oprettelse
+  id            Int       @id @default(autoincrement()) // Primærnøgle
+  image         String    // Billede af bilen
+  name          String    // Bilens navn eller
+  model         String    // Bilens model
+  weight        Int       // Vægt i kg
+  engine        String    // Bilens motor
+  horsepower    Int       // Motorens HK
+  topspeed      Int       // Bilens tophastighed
+  acceleration  Decimal   // Bilens acceleration i sek
+  createdAt     DateTime @default(now()) // Timestamp for oprettelse
 }
 

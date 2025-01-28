@@ -1,5 +1,5 @@
 import styles from './page.module.css';
-import Car from '@/components/car/car';
+import Car from '@/components/(site)/car/car';
 import Image from "next/image"
 import Link from 'next/link'
 
