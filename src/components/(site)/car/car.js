@@ -28,9 +28,55 @@ const Car = () => {
 
             <div key={car.id} className={styles.carContainer}>
 
-                {car.image ? ( <div className={styles.columnImage}>
+                <div className={styles.carImage}>
+
+                    {car.image ? ( <div className={styles.columnImage}>
+                        <img src={car.image} alt={car.name} />
+                    </div>) : ''}
+
+                </div>
+
+                <div className={styles.carInfo}>
+
+                    <h1>{car.name}</h1>
+
+                    <div className={styles.column}>
+                        <p>Model:</p>
+                        <p>{car.model}</p>
+                    </div>
+
+                    <div className={styles.column}>
+                        <p>Vægt:</p>
+                        <p>{car.weight} kg</p>
+                    </div>
+
+                    <div className={styles.column}>
+                        <p>Motor:</p>
+                        <p>{car.engine}</p>
+                    </div>
+
+                    <div className={styles.column}>
+                        <p>Hestekræfter:</p>
+                        <p>{car.horsepower} HK</p>
+                    </div>
+
+                    <div className={styles.column}>
+                        <p>Tophastighed:</p>
+                        <p>{car.topspeed} km/t</p>
+                    </div>
+
+                    <div className={styles.column}>
+                        <p>0-100:</p>
+                        <p>{car.acceleration} Sek</p>
+                    </div>
+
+                </div>
+
+                {/* {car.image ? ( <div className={styles.columnImage}>
                     <img src={car.image} alt={car.name} />
                 </div>) : ''}
+
+
 
                 <h1>{car.name}</h1>
 
@@ -62,7 +108,8 @@ const Car = () => {
                 <div className={styles.column}>
                     <p>0-100:</p>
                     <p>{car.acceleration} Sek</p>
-                </div>
+                </div> */}
+
 
                 
             </div>

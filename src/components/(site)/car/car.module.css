@@ -2,6 +2,8 @@
     height: auto;
     width: 100%;
     display: flex;
+    /* display: grid; */
+    /* grid-template-columns: repeat(2, 1fr); */
     padding: 50px;
     flex-direction: column;
     gap: 25px;
@@ -10,17 +12,65 @@
 .carContainer {
     height: auto;
     width: 100%;
+    /* max-width: 750px; */
+    display: grid;
+    
+    grid-template-columns:  1fr; 
+    grid-template-rows: repeat(2, 1fr);
+    /* flex-direction: column; */
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    /* margin: 0 auto; */
+    gap: 5px;
+}
+.column {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+    
+    .container {
+        padding: 50px 150px;
+    }
+    .carContainer {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 1fr;
+        gap: 50px;
+        /* grid-template-rows: repeat(2, 1fr); */ 
+    }
+    
+}
+/* .carContainer {
+    height: auto;
+    width: 100%;
     max-width: 750px;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
-    /* align-items: center; */
     padding: 20px;
     background: rgba(0, 0, 0, 0.5);
     border-radius: 5px;
     margin: 0 auto;
     gap: 5px;
     border: 2px solid rgba(255, 255, 255, 1);
+} */
+
+.carImage {
+    width: 100%;
+}
+.carImage img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    display: block;
+    padding: 0;
+    margin: 0;
+}
+
+.carInfo {
 
 }
 
@@ -30,8 +80,18 @@
 }
 
 .carContainer .column {
-    display: flex;
+    /* display: flex; */
     /* flex-direction: row; */
+    /* align-items: center; */
+    /* justify-content: space-between; */
+    /* margin-bottom: 10px; */
+    /* padding-bottom: 10px; */
+    /* border-bottom: 1px solid rgba(255, 255, 255, 1);  */
+}
+
+
+/* .carContainer .column {
+    display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 10px;
@@ -40,10 +100,11 @@
 }
 .carContainer .column:last-of-type {
     margin-bottom: 0;
-}
+} */
 
 
-.carContainer .columnImage img {
+
+/* .carContainer .columnImage img {
     width: 100%;
     height: auto;
     border-top-left-radius: 5px;
@@ -52,4 +113,4 @@
     padding: 0;
     margin: 0;
     border-bottom: 10px solid #1810f2;
-}
+} */
