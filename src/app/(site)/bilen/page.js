@@ -2,11 +2,11 @@ import styles from './page.module.css';
 import Car from '@/components/(site)/car/car';
 import Image from "next/image"
 import Link from 'next/link'
-import Teaser from '@/components/(site)/teaser/teaser';
+import SubHero from '@/components/(site)/subhero/subhero';
 
 export default function Page() {
     
-    const teaserConfig = {
+    const subheroConfig = {
         title: 'Om Bilen',
         subtitle: 'Legend Car Cup',
         image: '/Heros/Bilen.jpg'
@@ -16,7 +16,7 @@ export default function Page() {
 
         <div className={styles.container}> 
 
-            <Teaser config={teaserConfig}></Teaser>
+            <SubHero config={subheroConfig}></SubHero>
 
             <div className={styles.cars}>
 
