@@ -1,5 +1,4 @@
 import { FaPhone } from 'react-icons/fa6';
-import { PrismaClient } from '@prisma/client';
 
 export const getMenuData = async () => {
 
@@ -110,35 +109,27 @@ export const getFooterData = async () => {
 
 }
 
-const prisma = new PrismaClient();
 
-export async function getCars() {
+export const getCars = async () => {
     try {
-        const cars = await prisma.cars.findMany();
-        return cars;
+        const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/cars?populate=*`);
+        const data = await response.json();
+        console.log("API Response:", data.data);
+        return data.data;
+
+        // if (!response.ok) {
+        //     throw new Error('Fejl ved hentning af biler');
+        // }
+
+        // console.log("Data:", data);
+        // if (!data || !data.data) {
+        //     throw new Error('Ingen data modtaget');
+        // }
+
+
     } catch (error) {
-        console.log("Error fetching cars:", error);
-        throw new Error('Error fetching cars');
+        console.log("Fejl ved at hente biler:", error);
+        throw error;
     }
 }
 
-export async function createCar(data) {
-    try {
-        const newCar = await prisma.cars.create({
-            data: {
-                image: data.image,
-                name: data.name,
-                model: data.model,
-                weight: data.weight,
-                engine: data.engine,
-                horsepower: data.horsepower,
-                topspeed: data.topspeed,
-                acceleration: data.acceleration,
-            }
-        });
-        return newCar;
-    } catch (error) {
-        console.log("Error creating car:", error);
-        throw new Error('Error creating car');
-    }
-}
