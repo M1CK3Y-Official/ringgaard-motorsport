@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import styles from './footer.module.css';
 import Link from 'next/link';
-import { FaFacebookF, FaInstagram, FaTiktok, FaYoutube  } from 'react-icons/fa6';
+import { FaFacebookF, FaInstagram, FaTiktok, FaYoutube, FaLocationDot , FaPhone, FaEnvelope, FaFacebook  } from 'react-icons/fa6';
 import { useState, useEffect } from 'react';
 import { getFooterData } from '@/services/data.service';
 
@@ -14,7 +14,7 @@ const Footer = () => {
             const getData = async () => {
                 try {
                     const data = await getFooterData();
-                    console.log("Data fetched:", data);
+                    console.log("Footer Data fetched:", data);
                     setFooterData(data);
                 } catch (error) {
                     console.log("Error fetching footer data:", error);
@@ -27,53 +27,60 @@ const Footer = () => {
 
   return (
     <footer className={styles.footer}>
-      <div className={styles.logo}>
-        <Link href='/'><Image src="/logos/White/Logo_Landscape_White.svg" alt="logo" width={2691} height={517} /></Link>
-      </div>
+      
       
       <div className={styles.container}>
 
-        <div className={styles.footerLeft}>
+            {footerData?.map( (footerItem) => {
+              return ( 
+              <div key={footerItem.id} className={styles.footerGroup}>
+                {footerItem.subTitle ? <div className={styles.headingContainer}><h3 className={styles.footerHeading}>{footerItem?.name}</h3><p>{footerItem.subTitle}</p></div> : <h3 className={styles.footerHeading}>{footerItem?.name}</h3>}
+                
+                {footerItem?.menus ? (
+                  <div className={styles.menus}>
 
-            {footerData.map( (footerItem) => {
-              return ( <div key={footerItem.id} className={styles.footerMenu}>
-                <h3 className={styles.footerHeading}>{footerItem.name}</h3>
-                <div className={styles.menus}>
+                    {footerItem?.menus?.map( (menu, index) => {
+                      return (
+                        <Link key={index} href={menu?.link}>{menu?.name}</Link>
+                      );
+                    })}
 
-                {footerItem.menus.map( (menu, index) => {
-                  return (
-                    <Link key={index} href={menu.link}>{menu.name}</Link>
-                  );
-                })}
-
+                  </div> 
+                ) : footerItem?.description ? (
+                <div className={styles.footerIntro}>
+                  <div className={styles.description}>
+                    {footerItem?.description}
+                  </div>
+                  {footerItem?.socials ? <div className={styles.footerSocials}>
+                      {footerItem?.socials?.map( (social, index) => {
+                        return (
+                        <Link key={index} href={social.link} target='_blank'>
+                           {social.icon}
+                      </Link> )})}
+                      
+                
+                    </div> : ""}
                 </div>
+            ) : footerItem?.contactInfo ? (
+                <div className={styles.footerContact}>
+                  <div className={styles.contactInfo}>
+                    {footerItem?.contactInfo?.map( (info, index) => {
+
+                      return (
+                        <div className={styles.contact} key={index}>
+                          <div className={styles.icon}>{info.icon}</div>
+                          <div>{info?.mail ? (<Link href={`mailto:${info.mail}`} target='_blank'>{info.text}</Link>) : info.phone ? (<Link href={`tel:+${info.phone}`}>{info.text}</Link>) : ""}</div>
+                        </div> 
+                        );
+                      })}
+                    
+                  </div>
+                </div>
+                ) : ""}
+              
               </div>
               );
             })}
-          
-        </div>
-
-        <div className={styles.footerRight}>
-          <div className={styles.footerFollow}>
-
-            <h3 className={styles.footerHeading}>Tilmeld nyhedsbrev</h3>
-
-            <div className={styles.newsletterField}>
-              <input className={styles.newsletterInput} type="email" placeholder="Indtast din email" />
-              <button className={styles.newsletterSend}>Tilmeld</button>
-            </div>
-
-            <div className={styles.footerSocials}>
-              <Link href='https://www.facebook.com/MathiasRinggaardMotorsport' target='_blank'><FaFacebookF className={styles.icon} /></Link>
-              <Link href='https://www.instagram.com/Mathias_Ringgaard_Motorsport' target='_blank'><FaInstagram className={styles.icon} /></Link>
-              <Link href='https://www.tiktok.com/@mathiasringgaard56' target='_blank'><FaTiktok className={styles.icon} /></Link>
-              <Link href='https://www.youtube.com/channel/UCyde5KRpJY6RZJ64SczI1vw' target='_blank'><FaYoutube className={styles.icon} /></Link>
-            </div>
-
-          </div>
-        </div>
-      
-      
 
       </div>
 

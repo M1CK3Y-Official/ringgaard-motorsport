@@ -1,14 +1,17 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* --background: #ffffff; */
+  /* --foreground: #171717; */
+  --background: rgb(3, 7, 18);
+  --heading-color: #60A5FA;
+  --text-color: #D1D5DB;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
+} */
 
 html,
 body {
@@ -22,6 +25,7 @@ body {
   /* max-width: 100%; */
   max-width: 1920px;
   margin: 0 auto;
+  background-color: var(--background);
 }
 
 * {

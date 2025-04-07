@@ -5,7 +5,7 @@ import { FaBars, FaXmark } from 'react-icons/fa6';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { getMenuData } from '@/services/data.service';
+import { getMenuData, getMenuData2 } from '@/services/data.service';
 
 const Navigation = () => {
 
@@ -23,16 +23,30 @@ const Navigation = () => {
         const navbar = document.querySelector("nav");
         const navbarHeight = navbar.offsetHeight;        
 
-        const getData = async () => {
+        // const getData = async () => {
+        //     try {
+        //         const data = await getMenuData();
+        //         console.log("Data fetched:", data);
+        //         setMenuData(data);
+        //     } catch (error) {
+        //         console.log("Error fetching menu data:", error);
+        //     }
+        // }
+        // getData();
+
+        const fetchMenuData = async () => {
             try {
-                const data = await getMenuData();
-                console.log("Data fetched:", data);
-                setMenuData(data);
+                const fetchedMenuData = await getMenuData2();
+                console.log("Fetched Menu Data:", fetchedMenuData);
+
+
+                setMenuData(fetchedMenuData);
             } catch (error) {
-                console.log("Error fetching menu data:", error);
+                console.log("Kunne ikke hente menu data:", error);
             }
-        }
-        getData();
+            // console.log('testing this shit', menuData)
+;        }
+        fetchMenuData();
 
         const handleScroll = () => {
             if (window.scrollY > navbarHeight) {
@@ -71,7 +85,19 @@ const Navigation = () => {
 
             <div className={`${styles.navBar} ${isSticky ? styles.sticky : ''}`}>
                 <div className={styles.logo}>
-                    <Link href='/'><Image src='/Logos/Blue/Logo_Landscape.svg' alt='logo' width={2691} height={517} /></Link>
+                    {menuData.logoLink?.image?.data?.attributes && (
+
+                        <Link href={menuData.logoLink.href || '/'}>
+                            {menuData.logoLink?.image?.data?.attributes?.url && (
+                                <Image 
+                                    src={menuData.logoLink.image.data.attributes.url} 
+                                    alt={menuData.logoLink.image.data.attributes.alternativeText || 'Logo'} 
+                                    width={menuData.logoLink.image.data.attributes.width} 
+                                    height={menuData.logoLink.image.data.attributes.height} 
+                                />
+                            )}
+                        </Link>
+                    )}
                 </div>
 
                 <div className={styles.actions}>
@@ -83,9 +109,18 @@ const Navigation = () => {
                     )}
 
                     <div className={styles.menus}>
-                        {menuData.map( (menu, index) => (
+                        {Array.isArray(menuData.link) &&
+                            menuData.link.map( (menu) => (
 
-                                <Link ref={menuRef} key={index} href={menu.link} className={pathname === menu.link ? styles.active : ''}>{menu.icon && <span className={styles.menuIcon}>{menu.icon}</span>} {menu.name}</Link>
+                                <Link 
+                                    ref={menuRef} 
+                                    key={menu.id} 
+                                    href={menu.href} 
+                                    className={pathname === menu.href ? styles.active : ''}
+                                >
+                                    {/* {menu?.icon && <span className={styles.menuIcon}>{menu?.icon}</span>} {menu.link.text}</Link> */}
+                                    {menu.text}
+                                </Link>
                             
                             ))}
                     </div>
@@ -96,8 +131,14 @@ const Navigation = () => {
             <div className={`${styles.overlay} ${isOpen ? styles.open : ''}`}></div>
 
             <div ref={menuRef} className={`${styles.dropdown} ${isOpen ? styles.open : ''}`}>
-                {menuData.map( (menu, index) => (
-                    <Link key={index} href={menu.link} className={pathname === menu.link ? styles.active : ''}>{menu.name}</Link>
+                {Array.isArray(menuData.link) &&
+                    menuData.link.map( (menu) => (
+                    <Link 
+                        key={menu.id} 
+                        href={menu.href} 
+                        className={pathname === menu.href ? styles.active : ''}
+                    >
+                        {menu.text}</Link>
                 ))}
             </div>
 

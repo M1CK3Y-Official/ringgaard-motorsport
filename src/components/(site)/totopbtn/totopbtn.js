@@ -10,7 +10,7 @@ const ToTopBtn = () => {
 
     useEffect(() => {
         const toggleVisibility = () => {
-            console.log("Window Scroll Y:", window.scrollY);
+            // console.log("Window Scroll Y:", window.scrollY);
             if (window.scrollY > 300) {
                 setIsVisible(true);
             } 
@@ -30,7 +30,7 @@ const ToTopBtn = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
-    console.log("ToTopBtn rendered");
+    // console.log("ToTopBtn rendered");
 
 
   return (
