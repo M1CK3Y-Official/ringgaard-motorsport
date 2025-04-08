@@ -87,6 +87,7 @@ const Footer = () => {
 
       <div className={styles.footerBottom}>
         <p>&copy; 2025 Mathias Ringgaard Motorsport. All rights reserved</p>
+        <span className={styles.designby}>Designed by <Link href={'https://mikeboldsen.dk'} >Mike Boldsen</Link></span>
       </div>
 
     </footer>
