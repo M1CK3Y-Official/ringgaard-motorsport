@@ -1,5 +1,5 @@
 import "./globals.css"; 
-import { ralewayFont } from '@/utils/fonts';
+import { poppinsFont } from '@/utils/fonts';
 
 export const metadata = {
   title: "Ringgaard Motorsport",
@@ -9,7 +9,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={ralewayFont.className}>
+      <body className={poppinsFont.className}>
         {children}
       </body>
     </html>
