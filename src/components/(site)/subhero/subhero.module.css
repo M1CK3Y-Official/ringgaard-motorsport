@@ -7,6 +7,15 @@
         overflow: hidden;
         position: relative;
     }
+    .subhero::after {
+        content: '';
+        display: block;
+        bottom: 0;
+        width: 100%;
+        height: 5px;
+        position: absolute;
+        background: linear-gradient(to right, var(--heading-color) 0%, var(--heading-color) 20%, rgba(0, 0, 0, 0) 100%), rgba(24, 24, 24, 0.84);
+    }
     
     .subhero img {
         max-width: 768px;
