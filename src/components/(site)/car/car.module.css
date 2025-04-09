@@ -6,7 +6,9 @@
     /* grid-template-columns: repeat(2, 1fr); */
     /* padding: 50px; */
     flex-direction: column;
-    gap: 25px;
+    gap: 2rem;
+    max-width: 1024px;
+    margin: 0 auto;
 }
 
 .carContainer {

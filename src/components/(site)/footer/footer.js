@@ -28,7 +28,7 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
       
-      <div className={styles.wrapper}>
+      <div className={styles.footerWrapper}>
         <div className={styles.container}>
 
               {footerData?.map( (footerItem) => {

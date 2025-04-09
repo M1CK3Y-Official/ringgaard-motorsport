@@ -164,16 +164,6 @@ export const getCars = async () => {
         console.log("API Response:", data.data);
         return data.data;
 
-        // if (!response.ok) {
-        //     throw new Error('Fejl ved hentning af biler');
-        // }
-
-        // console.log("Data:", data);
-        // if (!data || !data.data) {
-        //     throw new Error('Ingen data modtaget');
-        // }
-
-
     } catch (error) {
         console.log("Fejl ved at hente biler:", error);
         throw error;
