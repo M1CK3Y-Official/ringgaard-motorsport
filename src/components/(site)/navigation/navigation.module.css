@@ -7,7 +7,16 @@
     margin: 0 auto;
     background: rgb(3 7 18 / 0.9);
     backdrop-filter: blur(4px);
-    border-bottom: 1px solid #2b2b2b;
+    /* border-bottom: 1px solid #2b2b2b; */
+}
+.nav::after {
+    content: '';
+        display: block;
+        bottom: 0;
+        width: 100%;
+        height: 5px;
+        position: absolute;
+        background: linear-gradient(to right, var(--heading-color) 0%, var(--heading-color) 20%, rgba(0, 0, 0, 0) 100%), rgba(24, 24, 24, 0.84);
 }
 
 .nav.sticky {
