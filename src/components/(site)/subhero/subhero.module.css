@@ -61,7 +61,7 @@
         color: var(--heading-color);
     }
 
-    .header p span {
+    .header p a {
         color: #808080;
         font-weight: 300;
         font-size: 1.125rem;
