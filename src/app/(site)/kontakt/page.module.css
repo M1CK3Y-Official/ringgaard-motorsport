@@ -1,0 +1,32 @@
+.formContainer {
+    display: flex;
+    flex-direction: column;
+} 
+.formContainer input, .message {
+    margin-bottom: 1rem;
+    background-color: #172449;
+    padding: 0.5rem;
+    color: white;
+    border-radius: 0.5rem;
+    border: 2.5px solid var(--heading-color);
+    overflow: hidden;
+    resize: vertical;
+    font-size: 1rem;
+    font-family: 'Geist';
+}
+
+
+.formContainer button {
+    margin-top: 0.5rem;
+    background-color: var(--heading-color);
+    padding: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    border-radius: 0.5rem;
+}
+
+.formContainer * {
+    outline: none;
+    border: none;
+}
