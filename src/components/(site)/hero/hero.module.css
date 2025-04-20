@@ -4,6 +4,16 @@
     max-width: 768px;
     width: 100vw;
     overflow: hidden;
+    position: relative;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    height: 5px;
+    width: 100%;
+    background: var(--hero-line);
 }
 
 .hero img {
@@ -18,7 +28,8 @@
 }
 
 .hero .overlay {
-    background: linear-gradient(to bottom, rgba(24, 16, 242, 0.2) 0%, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0) 100%), rgba(24, 24, 24, 0.84);
+    /* background: linear-gradient(to bottom, rgba(24, 16, 242, 0.2) 0%, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0) 100%), rgba(24, 24, 24, 0.84); */
+    background: linear-gradient(180deg, rgb(3 7 18) 0%, rgba(12, 14, 21, 0.5) 50%, rgb(3 7 18) 100%);
     width: 100vw;
     height: 100vh;
     position: absolute;

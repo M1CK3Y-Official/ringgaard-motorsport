@@ -1,6 +1,7 @@
 import styles from './subhero.module.css'
 import Image from "next/image"
 import Link from 'next/link'
+import {FaChevronRight } from 'react-icons/fa6';
 
 const SubHero = ({config}) => {
 
@@ -21,7 +22,7 @@ const SubHero = ({config}) => {
                     {restOfTitle} <span className={styles.lastWord}>{lastWord}</span>
                 </span>
 
-                {config.subtitle ? <p><Link href="/">Forside &gt; </Link>{config.subtitle}</p> : ''}
+                {config.subtitle ? <p><Link href="/">Forside</Link> <FaChevronRight/> {config.subtitle}</p> : ''}
             </div>
         </header>
     )

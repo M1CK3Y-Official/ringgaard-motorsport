@@ -3,6 +3,7 @@ import Car from '@/components/(site)/car/car';
 import Image from "next/image"
 import Link from 'next/link'
 import SubHero from '@/components/(site)/subhero/subhero';
+import Label from '@/components/(site)/label/label';
 
 export default function Page() {
     
@@ -16,28 +17,34 @@ export default function Page() {
 
         <> 
 
-            <SubHero config={subheroConfig}></SubHero>
+            <SubHero config={subheroConfig} />
             
             <div className='wrapper'> 
 
-                <div className={styles.cars}>
 
-                    <div className={styles.introduction}>
 
                         <div className={'textContainer'}>
-                            <h1>Legend Car</h1>
-                                <p className='body'>I 2025 tager vi endnu et år i Legend Car Cuppen, men denne gang i den 3-cylindrede klasse, som er klassen med den nyeste og også hurtigste motor! I 2024 har vi nemlig kørt i den 4-cylindrede klasse, som er den lidt billigere og mere begyndervenlige klasse! Her er det gået rigtig godt med flere sejre og en samlet 4. plads i DM!
-                                <br/><br/>
-                                Vi er dog rigtig ambitiøse og det er derfor vi rykker over i den anden klasse! Vi skal med helt frem hvor det er rigtig sjovt! Vi skal frem og vinde!
-                                <br/><br/>
-                                Herunder kan du læse mere om vores biler, deres specifikationer og ydeevne.
+                            <Label>OM KØRETØJET</Label>
+                            <h2>Legend Car</h2>
+                            <div className='body'>
+                                <p>
+                                    Legends Car Cup blev startet i Danmark i 2009 og tæller i dag et af motorsportens største løbsfelter.
+                                    Bilerne er meningen at skulle ligne gamle klassiske biler fra USA fra 1930’erne. Selvom de ved første øjekast ikke ser ud af meget, så er der nogle sande bæster der er bygget ene og alene med det formål at køre race.
                                 </p>
+
+                                <p>
+                                    Racerbilerne er bygget op over en rørramme og et sikkerhedsbur, er forsynet med en meget omdrejningsvillig motorcykelmotor samt et karrosseri, der er en 5/8-udgave af en amerikansk bilmodel.
+                                    Bilerne er udstyret med baghjulstræk, hvilket gør dem sjove at køre… og sjove at kigge på.
+                                </p>
+
+                                <p>
+                                    OK Mobil 1 Legends Car Cuppen er uden tvivl Danmarks sjoveste racerklasse – der er underholdning fra start til mål, når Legends Car Cuppen kører race.
+                                </p>
+                            </div>
                         </div>
                         
-                    </div>
 
-                    <Car></Car>
-                </div>
+                    <Car />
             </div>
         </>
 

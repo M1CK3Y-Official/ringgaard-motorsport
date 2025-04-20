@@ -1,0 +1,12 @@
+.label {
+    padding: 0.25rem 0.75rem;
+    display: inline-block;
+    background-color: var(--label-background);
+    border-radius: 9999px;
+    border: solid 1px var(--label-border);
+    font-size: 0.875rem;
+    color: var(--heading-color);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.25rem;
+  }
