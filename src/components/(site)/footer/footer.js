@@ -2,96 +2,115 @@
 import Image from 'next/image';
 import styles from './footer.module.css';
 import Link from 'next/link';
-import { FaFacebookF, FaInstagram, FaTiktok, FaYoutube, FaLocationDot , FaPhone, FaEnvelope, FaFacebook  } from 'react-icons/fa6';
+import { FaFacebookF, FaInstagram, FaTiktok, FaYoutube, FaEnvelope, FaPhone } from 'react-icons/fa6';
 import { useState, useEffect } from 'react';
 import { getFooterData } from '@/services/data.service';
 
 const Footer = () => {
+  const [footerData, setFooterData] = useState([]);
 
-    const [footerData, setFooterData] = useState([]);
-    
-        useEffect( () => {
-            const getData = async () => {
-                try {
-                    const data = await getFooterData();
-                    console.log("Footer Data fetched:", data);
-                    setFooterData(data);
-                } catch (error) {
-                    console.log("Error fetching footer data:", error);
-                }
-            }
-            getData();
-        }, []);
+  useEffect(() => {
+    const fetchFooterData = async () => {
+      try {
+        const fetchedFooterData = await getFooterData();
+        console.log("Footer Data fetched:", fetchedFooterData);
+        setFooterData(fetchedFooterData.content); // Extract the content array
+      } catch (error) {
+        console.log("Error fetching footer data:", error);
+      }
+    };
+    fetchFooterData();
+  }, []);
 
-
+  const iconMap = {
+    Mail: <FaEnvelope />,
+    Phone: <FaPhone />,
+    Instagram: <FaInstagram />,
+    Facebook: <FaFacebookF />,
+    TikTok: <FaTiktok />,
+    YouTube: <FaYoutube />,
+  };
 
   return (
     <footer className={styles.footer}>
-      
       <div className={styles.footerWrapper}>
         <div className={styles.container}>
-
-              {footerData?.map( (footerItem) => {
-                return ( 
-                <div key={footerItem.id} className={styles.footerGroup}>
-                  {footerItem.subTitle ? <div className={styles.headingContainer}><h3 className={styles.footerHeading}>{footerItem?.name}</h3><p>{footerItem.subTitle}</p></div> : <h3 className={styles.footerHeading}>{footerItem?.name}</h3>}
-                  
-                  {footerItem?.menus ? (
-                    <div className={styles.menus}>
-
-                      {footerItem?.menus?.map( (menu, index) => {
-                        return (
-                          <Link key={index} href={menu?.link}>{menu?.name}</Link>
-                        );
-                      })}
-
-                    </div> 
-                  ) : footerItem?.description ? (
-                  <div className={styles.footerIntro}>
-                    <div className={styles.description}>
-                      {footerItem?.description}
-                    </div>
-                    {footerItem?.socials ? <div className={styles.footerSocials}>
-                        {footerItem?.socials?.map( (social, index) => {
-                          return (
-                          <Link key={index} href={social.link} target='_blank'>
-                            {social.icon}
-                        </Link> )})}
-                        
-                  
-                      </div> : ""}
+          {footerData.length > 0 ? (
+            footerData.map((footerItem) => (
+              <div key={footerItem.id} className={styles.footerGroup}>
+                {/* Title and Subtitle */}
+                {footerItem.subTitle ? (
+                  <div className={styles.headingContainer}>
+                    <h3 className={styles.footerHeading}>{footerItem.title}</h3>
+                    <p>{footerItem.subTitle}</p>
                   </div>
-              ) : footerItem?.contactInfo ? (
+                ) : (
+                  <h3 className={styles.footerHeading}>{footerItem.title}</h3>
+                )}
+
+                {/* Menus or Groups */}
+                {footerItem.group && (
                   <div className={styles.footerContact}>
                     <div className={styles.contactInfo}>
-                      {footerItem?.contactInfo?.map( (info, index) => {
-
-                        return (
-                          <div className={styles.contact} key={index}>
-                            <div className={styles.icon}>{info.icon}</div>
-                            <div>{info?.mail ? (<Link href={`mailto:${info.mail}`} target='_blank'>{info.text}</Link>) : info.phone ? (<Link href={`tel:+${info.phone}`}>{info.text}</Link>) : ""}</div>
-                          </div> 
-                          );
-                        })}
-                      
+                      {footerItem.group.map((info, index) => (
+                        <div className={styles.contact} key={index}>
+                          {info.icon && ( // Only render the icon if it exists
+                            <div className={styles.icon}>
+                              {iconMap[info.icon]} {/* Render the icon dynamically */}
+                            </div>
+                          )}
+                          <div>
+                            {info.icon === "Mail" ? (
+                              <Link href={`mailto:${info.href}`} target="_self">
+                                {info.text}
+                              </Link>
+                            ) : info.icon === "Phone" ? (
+                              <Link href={`tel:${info.href}`} target="_self">
+                                {info.text}
+                              </Link>
+                            ) : (
+                              <Link href={info.href} target="_blank">
+                                {info.text}
+                              </Link>
+                            )}
+                          </div>
+                        </div>
+                      ))}
                     </div>
                   </div>
-                  ) : ""}
-                
-                </div>
-                );
-              })}
+                )}
 
+                {/* Description and Socials */}
+                {footerItem.description && (
+                  <div className={styles.footerIntro}>
+                    <div className={styles.description}>{footerItem.description}</div>
+                    {footerItem.socials && (
+                      <div className={styles.footerSocials}>
+                        {footerItem.socials.map((social) => (
+                          <Link key={social.id} href={social.href} target="_blank">
+                            {iconMap[social.platform] || <span>{social.platform}</span>}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
+            ))
+          ) : (
+            <p>Loading footer content...</p>
+          )}
         </div>
       </div>
 
       <div className={styles.footerBottom}>
         <p>&copy; 2025 Mathias Ringgaard Motorsport. All rights reserved</p>
-        <span className={styles.designby}>Designed by <Link href={'https://mikeboldsen.dk'} >Mike Boldsen</Link></span>
+        <span className={styles.designby}>
+          Designed by <Link href={'https://mikeboldsen.dk'}>Mike Boldsen</Link>
+        </span>
       </div>
-
     </footer>
-  )
+  );
 };
 
-export default Footer
+export default Footer;

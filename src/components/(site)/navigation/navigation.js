@@ -5,7 +5,7 @@ import { FaBars, FaXmark } from 'react-icons/fa6';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { getMenuData, getMenuData2 } from '@/services/data.service';
+import { getMenuData } from '@/services/data.service';
 
 const Navigation = () => {
 
@@ -23,20 +23,9 @@ const Navigation = () => {
         const navbar = document.querySelector("nav");
         const navbarHeight = navbar.offsetHeight;        
 
-        // const getData = async () => {
-        //     try {
-        //         const data = await getMenuData();
-        //         console.log("Data fetched:", data);
-        //         setMenuData(data);
-        //     } catch (error) {
-        //         console.log("Error fetching menu data:", error);
-        //     }
-        // }
-        // getData();
-
         const fetchMenuData = async () => {
             try {
-                const fetchedMenuData = await getMenuData2();
+                const fetchedMenuData = await getMenuData();
                 console.log("Fetched Menu Data:", fetchedMenuData);
 
 
