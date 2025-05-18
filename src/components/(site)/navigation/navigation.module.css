@@ -31,7 +31,7 @@
     align-items: center;
     justify-content: space-between;
     z-index: 10;
-    padding: 1rem 2rem;
+    padding: 1rem clamp(1rem, 0.0458rem + 4.0712vw, 2rem);
     top: 0;
     background: none;
     position: relative;
@@ -60,28 +60,36 @@
 .dropdown {
     position: fixed;
     z-index: 105;
-    background-color: #1810f2;
+    font-weight: 500;
+    background-color: rgb(17 24 39);
     width: 100%;
     height: auto;
+    top: calc(100% + 5px);
     /* top: 100%; */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 0.25rem;
+    padding: 0.75rem;
     transform: translateX(100%);
     transition: transform 0.5s ease-in-out;  
 }
 .dropdown.open{
     transform: translateX(0);
+    /* transform: translateY(5px); */
 }
+
+
 .dropdown a {
-    color: white;
-    font-size: 1.5rem;
-    padding: 10px 0;
+    color: var(--text-color);
+    /* font-size: ; */
+    padding: 0.5rem  0.75rem;
     width: 100%;
-    text-align: center;
+    /* text-align: center; */
     transition: all 0.25s ease-in-out;
     position: relative;
+    border-radius: 0.5rem;
 }
 
 .overlay.open {
@@ -90,11 +98,12 @@
 }
 
 .dropdown a:hover {
-    background-color: white;
-    color: black;
+    background-color: #d1d5db1a;
 }
 .dropdown a.active {
-    font-weight: 800;
+    /* font-weight: 800; */
+    background-color: var(--label-border);
+    color: var(--heading-color);
 }
 
 .overlay {
@@ -128,9 +137,23 @@
     display: none;
 }
 
-.bars {
-    font-size: 2rem;
+.actions {
     display: grid;
+    place-content: center;
+    /* height: 100%; */
+    /* aspect-ratio: 1; */
+    border-radius: calc(0.5rem - 2px);
+    padding: 0.5rem;
+}
+.actions:hover {
+    background-color: rgb(31 41 55);
+    cursor: pointer;
+}
+.bars {
+    font-size: 1.5rem;
+    color: rgb(156 163 175);
+    display: grid;
+    /* place-content: center; */
 }
 
 
@@ -144,6 +167,10 @@
         display: none;
     }
 
+    .actions:hover {
+        background-color: unset;
+        cursor: unset;
+    }
 
 
     .menus {

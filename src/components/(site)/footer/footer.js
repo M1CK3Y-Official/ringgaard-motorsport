@@ -98,7 +98,7 @@ const Footer = () => {
               </div>
             ))
           ) : (
-            <p>Loading footer content...</p>
+            ''
           )}
         </div>
       </div>

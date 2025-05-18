@@ -4,6 +4,7 @@ import Image from "next/image"
 import Link from 'next/link'
 import SubHero from '@/components/(site)/subhero/subhero';
 import Label from '@/components/(site)/label/label';
+import TextContainer from '@/components/(site)/textContainer/textContainer';
 
 export default function Page() {
     
@@ -21,7 +22,7 @@ export default function Page() {
             
             <div className='wrapper'> 
 
-
+                    {/* <TextContainer /> */}
 
                         <div className={'textContainer'}>
                             <Label>OM KØRETØJET</Label>
@@ -41,8 +42,7 @@ export default function Page() {
                                     OK Mobil 1 Legends Car Cuppen er uden tvivl Danmarks sjoveste racerklasse – der er underholdning fra start til mål, når Legends Car Cuppen kører race.
                                 </p>
                             </div>
-                        </div>
-                        
+                        </div>                        
 
                     <Car />
             </div>

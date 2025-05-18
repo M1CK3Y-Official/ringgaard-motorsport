@@ -8,7 +8,7 @@
 .footerWrapper {
     margin: 0 auto;
     max-width: 1400px;
-    padding: 2rem ;
+    padding: 2rem clamp(1rem, 0.0458rem + 4.0712vw, 2rem);
 }
 
 .container {

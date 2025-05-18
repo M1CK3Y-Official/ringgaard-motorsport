@@ -1,0 +1,17 @@
+
+
+.body {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+}
+    
+.textContainer {
+    max-width: 56rem;
+    margin: 0 auto;
+    margin-bottom: 4rem;
+}
+
+.textContainer p {
+    line-height: 1.625;
+}

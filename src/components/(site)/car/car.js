@@ -24,13 +24,10 @@ const Car = () => {
             } catch (error) {
                 setError('Kunne ikke hente biler'); 
             }
-
-            console.log("Cars fetched:", fetchCars);
         }
 
         fetchCars();
 
-        console.log("Cars:", cars.attributes);
 
     }, []);
 
