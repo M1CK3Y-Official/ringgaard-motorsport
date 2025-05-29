@@ -4,6 +4,10 @@ import React, { useState, useEffect } from 'react';
 import { getCars } from '@/services/data.service';
 import Image from "next/image"
 import Spinner from '@/components/(site)/spinner/spinner';
+import { FaWeightHanging, FaClock, FaBolt } from 'react-icons/fa6';
+import { FaTachometerAlt, FaCar } from 'react-icons/fa';
+import { PiEngineFill, PiSpeedometerFill  } from "react-icons/pi";
+
 
 
 const Car = () => {
@@ -11,6 +15,8 @@ const Car = () => {
     const [cars, setCars] = useState([]);
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
+
+    
 
     useEffect(() => {
 
@@ -35,13 +41,15 @@ const Car = () => {
         return <p>{error}</p>
     }
 
+
   return (
     <div className={styles.container}>
         {isLoading ? (
             <Spinner />
         ) : (
 
-            <> {cars.map((car) => (
+            <> {cars
+                .filter(car => car.attributes.active === true).map((car) => (
 
                 <div key={car.id} className={styles.carContainer}>
 
@@ -67,37 +75,52 @@ const Car = () => {
 
                     <div className={styles.carInfo}>
 
-                        <span className={styles.carTitle}>{car.attributes.name}</span>
+                        <div className={styles.carTitle}>
+                            <h3>
+                                <span className={styles.firstWord}>
+                                    {car.attributes.name.split(' ')[0]}
+                                </span>
+                                {" "}
+                                {car.attributes.name.split(' ').slice(1).join(' ')}
+                            </h3>   
+                        </div>
 
-                        <div className={styles.column}>
-                            <p>Model:</p>
+
+                            <div className={styles.icon}>
+                                <FaCar />
+                            </div>
+                            <p>Model</p>
                             <p>{car.attributes.model}</p>
-                        </div>
 
-                        <div className={styles.column}>
-                            <p>Vægt:</p>
+                            <div className={styles.icon}>
+                                <FaWeightHanging />
+                            </div>
+                            <p>Vægt</p>
                             <p>{car.attributes.weight} kg</p>
-                        </div>
 
-                        <div className={styles.column}>
-                            <p>Motor:</p>
+                            <div className={styles.icon}>
+                                <PiEngineFill />
+                            </div>
+                            <p>Motor</p>
                             <p>{car.attributes.engine}</p>
-                        </div>
 
-                        <div className={styles.column}>
-                            <p>Hestekræfter:</p>
+                            <div className={styles.icon}>
+                                <FaBolt />
+                            </div>
+                            <p>Hestekræfter</p>
                             <p>{car.attributes.horsepower} HK</p>
-                        </div>
 
-                        <div className={styles.column}>
-                            <p>Tophastighed:</p>
+                            <div className={styles.icon}>
+                                <PiSpeedometerFill />
+                            </div>
+                            <p>Tophastighed</p>
                             <p>{car.attributes.topspeed} km/t</p>
-                        </div>
 
-                        <div className={styles.column}>
-                            <p>0-100:</p>
+                            <div className={styles.icon}>
+                                <FaClock />
+                            </div>
+                            <p>0-100</p>
                             <p>{car.attributes.acceleration} Sek</p>
-                        </div>
 
                     </div>
 

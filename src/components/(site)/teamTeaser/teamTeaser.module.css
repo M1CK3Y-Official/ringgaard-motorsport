@@ -1,0 +1,197 @@
+.teamTeaser {
+    text-align: center;
+}
+
+.title span {
+    color: white;
+}
+
+
+
+.title {
+    margin-bottom: 1rem;
+    font-size: 2.25rem;
+}
+.textContainer p  {
+    color: rgb(156 163 175);
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));    
+    gap: 1.5rem;
+    /* margin-bottom: 1.5rem; */
+    
+}
+
+.driverContainer {
+    display: grid;
+    
+    /* flex-direction: column; */
+    gap: 2rem;
+    align-items: center;
+}
+
+.imageContainer {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    /* margin-bottom: 2rem; */
+}
+.imageContainer img {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    vertical-align: middle;
+    inset: 0;
+    padding: 0;
+    max-width: 100%;
+    margin: 0;
+}
+.imageContainer .imageOverlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.6;
+    background: linear-gradient(to top, #111827, rgb(17 24 39 / 0));
+}
+
+.stats .stat {
+    display: flex;
+    flex-direction: column;
+    padding:1rem;
+    background: rgb(17 24 39);
+    border-radius: 0.5rem;
+    border: 1px solid rgb(31 41 55 / 1);
+}
+.statTitle {
+    display: flex;
+    flex-direction: row;
+}
+
+.statTitle .statIcon {
+    margin-right: 0.5rem;
+    color: rgb(96 165 250);
+}
+
+.stat .statLabel {
+    color: rgb(156 163 175);
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+
+}
+.stat .statValue {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+}
+.info {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.quote {
+    font-style: italic;
+    background-color: rgb(59 130 246 / 0.1);
+    padding: 1rem;
+    border: 1px solid rgb(59 130 246 / 0.2);
+    border-radius: 0.5rem;
+}
+.quote p {
+    margin-bottom: 1rem;
+}
+.quote .quoteAuthor {
+    font-weight: 500;
+    color: rgb(59 130 246);
+}
+
+.info .name {
+    margin-bottom: 0.5rem;
+    font-size: 1.875rem;
+    line-height: 1.75rem;
+    /* text-align: center; */
+}
+.info .role {
+    color: rgb(59 130 246);
+    line-height: 1.5rem;
+    font-size: 1.125rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.icon {
+    height: 1.25rem;
+    width: 1.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(59 130 246 / 0.1);
+}
+
+.driverNumber {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 4rem;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(59 130 246 / 0.2);
+    border: 1px solid rgb(59 130 246 / 0.3);
+    border-radius: 9999px;
+    font-size: 1.5rem;
+    color: rgb(59 130 246);
+    font-weight: 700;
+    line-height: 1.25rem;
+}
+
+
+.button {
+    display: inline-flex;
+    max-width: fit-content;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    background-color: white;
+    color: rgb(59 130 246);
+    border: 1px solid rgb(216, 225, 240);
+    border-radius: 0.375rem;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.buttonContainer {
+    display: flex;
+    /* margin-top: 2rem; */
+    gap: 1rem;
+}
+
+.buttonContainer a:nth-child(1) {
+    background-color: rgb(59 130 246);
+    color: white;
+    border: 1px solid rgb(59 130 246 / 0.3);
+}
+
+.icon svg {
+    height: 1rem;
+    width: 1rem;
+    color: rgb(96 165 250);
+}
+
+@media screen and (min-width: 768px) {
+    .driverContainer {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+
+
