@@ -14,7 +14,7 @@ const Label = ({children}) => {
     });
   }, []);
   return (
-    <div className={styles.label} data-aos="fade-right">
+    <div className={styles.label} data-aos="fade-right" data-aos-once="true" >
       {children}
     </div>
   )

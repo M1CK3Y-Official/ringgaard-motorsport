@@ -35,7 +35,7 @@ const TextContainer = () => {
   return ( 
     <div className={styles.textContainer}>
     <Label>OM KØRETØJET</Label>
-    <h2 data-aos="fade-right" data-aos-offset="150">Legend Car</h2>
+    <h2 data-aos="fade-right" data-aos-once="true" data-aos-offset="150">Legend Car</h2>
 
     {testData.length > 0 ? (
       testData.map((testItem, index) => (

@@ -32,11 +32,11 @@ const SponsorsTeaser = () => {
       <div className='sectionWrapper'>
         <div className={'textContainer'}>
           <Label>Vores Samarbejdspartnere</Label>
-          <h2 className={styles.title} data-aos="fade-right"><span>Stolte</span> Sponsorer</h2>
-          <p data-aos="fade-right">Vi er stolte af at samarbejde med vores dedikerede partnere, som støtter os hele vejen mod sejren.</p>
+          <h2 className={styles.title} data-aos="fade-right" data-aos-once="true"><span>Stolte</span> Sponsorer</h2>
+          <p data-aos="fade-right" data-aos-once="true">Vi er stolte af at samarbejde med vores dedikerede partnere, som støtter os hele vejen mod sejren.</p>
         </div>
 
-          <div className={styles.sponsors} data-aos="fade-right">
+          <div className={styles.sponsors} data-aos="fade-right" data-aos-once="true">
             {sponsorsData.map((sponsor) => (
               console.log(sponsor),
               <div className={styles.sponsor} key={sponsor.id}>
@@ -55,7 +55,7 @@ const SponsorsTeaser = () => {
 
           </div>
 
-          <Link href="/sponsors" data-aos="fade-right" className={styles.button}>Se alle sponsorer <FaArrowRightLong /></Link>
+          <Link href="/sponsors" data-aos="fade-right" data-aos-once="true" className={styles.button}>Se alle sponsorer <FaArrowRightLong /></Link>
           
       </div>
     </section>

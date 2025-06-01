@@ -20,10 +20,10 @@ const Introduction = () => {
       <div className='sectionWrapper'>
         <div className={'textContainer'} >
           <Label >fremhævet</Label>
-          <h2 className={styles.title} data-aos="fade-right" ><span>Vores </span>Styrker</h2>
-          <p data-aos="fade-right" >Hos Ringgaard Motorsport kombinerer vi passionen for racerløb med teknisk præcision og en målrettet indsats. Selvom vi er nye i feltet, stræber vi konstant efter at udvikle os, levere solide resultater og skabe stærke relationer både på og uden for banen.</p>
+          <h2 className={styles.title} data-aos="fade-right" data-aos-once="true" ><span>Vores </span>Styrker</h2>
+          <p data-aos="fade-right" data-aos-once="true" >Hos Ringgaard Motorsport kombinerer vi passionen for racerløb med teknisk præcision og en målrettet indsats. Selvom vi er nye i feltet, stræber vi konstant efter at udvikle os, levere solide resultater og skabe stærke relationer både på og uden for banen.</p>
         </div>
-          <div className={styles.cards} data-aos="fade-right" >
+          <div className={styles.cards} data-aos="fade-right" data-aos-once="true" >
             <div className={styles.card}>
               <div className={styles.icon}><FaTrophy/></div>
               <h3>Høje Ambitioner</h3>
