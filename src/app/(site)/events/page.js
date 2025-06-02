@@ -18,7 +18,7 @@ export default function Page() {
             <div className="wrapper">
                 
                 <div className={'textContainer'}>
-                    
+                    Events
                 </div>
 
         </div>

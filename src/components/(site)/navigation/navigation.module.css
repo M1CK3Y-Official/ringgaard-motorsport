@@ -19,10 +19,7 @@
         background: var(--nav-line);
 }
 
-.nav.sticky {
-    position: fixed;
-    z-index: 999;
-}
+
 
 .navBar {
     display: flex;
@@ -40,10 +37,9 @@
     max-width: 1400px;
     margin: 0 auto;
 }
-/* .navBar.sticky {
-    padding: 10px clamp(1.25rem, 0.8889rem + 1.5408vw, 1.875rem);
-    background: rgba(0, 0, 0, 0.75);
-} */
+.navBar.sticky {
+    
+}
 
 .logo {
     max-height: 40px;

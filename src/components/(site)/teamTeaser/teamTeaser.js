@@ -17,11 +17,13 @@ const TeamTeaser = () => {
 
 return (
     <section className={styles.teamTeaser}>
+        {/* <div className={styles.blobRight}></div>
+        <div className={styles.blobLeft}></div> */}
         <div className='sectionWrapper'>
             <div className={'textContainer'} >
                 <Label >Mød Holdet</Label>
                 <h2 className={styles.title} data-aos="fade-right" data-aos-once="true"  ><span>Bag </span>Rattet</h2>
-                <Link className={styles.button} href="/team" data-aos="fade-right" data-aos-once="true" >Hele Teamet</Link>
+                {/* <Link className={styles.button} href="/team" data-aos="fade-right" data-aos-once="true" >Hele Teamet</Link> */}
             </div> 
 
             <div className={styles.driverContainer} >

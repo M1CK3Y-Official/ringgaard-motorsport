@@ -16,6 +16,7 @@ const SubHero = ({config}) => {
             <Image src={config.image} alt="subhero" width={4246} height={2830}></Image>
 
             <div className={styles.overlay}></div>
+            <div className={styles.overlay}></div>
 
             <div className={styles.header}>
                 <span className={styles.title}>

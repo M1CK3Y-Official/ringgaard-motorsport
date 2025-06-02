@@ -1,11 +1,11 @@
 .teamTeaser {
     text-align: center;
+    /* position: relative; */
 }
 
 .title span {
     color: white;
 }
-
 
 
 .title {
@@ -137,18 +137,18 @@
 
 .driverNumber {
     position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
+    top: 1rem;
+    right: 1rem;
     width: 4rem;
     aspect-ratio: 1 / 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgb(59 130 246 / 0.2);
+    background-color: rgb(18, 96, 220);
     border: 1px solid rgb(59 130 246 / 0.3);
     border-radius: 9999px;
     font-size: 1.5rem;
-    color: rgb(59 130 246);
+    color: white;
     font-weight: 700;
     line-height: 1.25rem;
 }

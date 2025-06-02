@@ -1,7 +1,11 @@
 .sponsorsTeaser {
     /* background: rgb(17 24 39 / 50%); */
     text-align: center;
+    position: relative;
+    z-index: 1;
 }
+
+
 
 .sponsors {
     display: grid;

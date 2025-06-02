@@ -9,8 +9,8 @@
   --label-border: rgb(59 130 246 / 0.2);
 
 
-  --section-background-1st: rgb(3 7 18);
-  --section-background-2nd: rgb(17 24 39 / 50%);;
+  --section-background-1st: #03071280;
+  --section-background-2nd: #11182780;
 
 
 
@@ -96,7 +96,7 @@ h2 {
 }
 
 section {
-  background-color: var(--background);
+  background-color: var(--section-background-1st);
 }
 section:nth-child(odd) {
   background-color: var(--section-background-2nd);
