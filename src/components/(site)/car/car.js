@@ -85,42 +85,76 @@ const Car = () => {
                             </h3>   
                         </div>
 
+                        <div className={styles.description}>
+                            <span className={styles.carDescription}>
+                                Our primary racing machine, this 1934 Ford Coupe replica delivers exceptional performance with its high power-to-weight ratio and responsive handling.
+                            </span>
+                        </div>
 
-                            <div className={styles.icon}>
-                                <FaCar />
-                            </div>
-                            <p>Model</p>
-                            <p>{car.attributes.model}</p>
 
-                            <div className={styles.icon}>
-                                <FaWeightHanging />
-                            </div>
-                            <p>Vægt</p>
-                            <p>{car.attributes.weight} kg</p>
+                        <div className={styles.carSpecs}>
 
-                            <div className={styles.icon}>
-                                <PiEngineFill />
+                            <div className={styles.carSpec}>
+                                <div className={styles.icon}>
+                                    <FaCar />
+                                </div>
+                                <div>
+                                    <p>Model</p>
+                                    <p>{car.attributes.model}</p>
+                                </div>
                             </div>
-                            <p>Motor</p>
-                            <p>{car.attributes.engine}</p>
 
-                            <div className={styles.icon}>
-                                <FaBolt />
+                            <div className={styles.carSpec}>
+                                <div className={styles.icon}>
+                                    <FaWeightHanging />
+                                </div>
+                                <div>
+                                    <p>Vægt</p>
+                                    <p>{car.attributes.weight} kg</p>
+                                </div>
                             </div>
-                            <p>Hestekræfter</p>
-                            <p>{car.attributes.horsepower} HK</p>
 
-                            <div className={styles.icon}>
-                                <PiSpeedometerFill />
+                            <div className={styles.carSpec}>
+                                <div className={styles.icon}>
+                                    <PiEngineFill />
+                                </div>
+                                <div>
+                                    <p>Motor</p>
+                                    <p>{car.attributes.engine}</p>
+                                </div>
                             </div>
-                            <p>Tophastighed</p>
-                            <p>{car.attributes.topspeed} km/t</p>
 
-                            <div className={styles.icon}>
-                                <FaClock />
+                            <div className={styles.carSpec}>
+                                <div className={styles.icon}>
+                                    <FaBolt />
+                                </div>
+                                <div>
+                                    <p>Hestekræfter</p>
+                                    <p>{car.attributes.horsepower} HK</p>
+                                </div>
                             </div>
-                            <p>0-100</p>
-                            <p>{car.attributes.acceleration} Sek</p>
+
+                            <div className={styles.carSpec}>
+                                <div className={styles.icon}>
+                                    <PiSpeedometerFill />
+                                </div>
+                                <div>
+                                    <p>Tophastighed</p>
+                                    <p>{car.attributes.topspeed} km/t</p>
+                                </div>
+                            </div>
+
+                            <div className={styles.carSpec}>
+                                <div className={styles.icon}>
+                                    <FaClock />
+                                </div>
+                                <div>
+                                    <p>0-100</p>
+                                    <p>{car.attributes.acceleration} Sek</p>
+                                </div>
+                            </div>
+
+                        </div>
 
                     </div>
 

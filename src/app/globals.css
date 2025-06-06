@@ -22,7 +22,8 @@
 
 
   --font-size-hero: 4.5rem;
-  --font-size-subhero: clamp(2.25rem, 0.8187rem + 6.1069vw, 3.75rem);
+  /* --font-size-subhero: clamp(2.25rem, 0.8187rem + 6.1069vw, 3.75rem); */
+  --font-size-subhero: clamp(3rem, 1.4524rem + 6.3492vw, 4.5rem);;
   --font-size-heading-h1: 3rem;
   --font-size-heading-h2: 1.875rem;
   --font-size-body: 1.125rem;
