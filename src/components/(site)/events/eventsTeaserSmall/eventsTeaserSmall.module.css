@@ -1,0 +1,35 @@
+.eventsTeaserSmall {
+    text-align: center;
+    /* position: relative; */
+}
+
+.title span {
+    color: white;
+}
+
+
+.title {
+    margin-bottom: 1rem;
+    font-size: 2.25rem;
+}
+.textContainer p  {
+    color: rgb(156 163 175);
+}
+
+.eventsContainer {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));    
+    gap: 1.5rem;
+    /* margin-bottom: 1.5rem; */
+    
+}
+
+.eventCard {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    align-items: center;
+    background-color: red;
+    border-radius: 0.5rem;
+
+}

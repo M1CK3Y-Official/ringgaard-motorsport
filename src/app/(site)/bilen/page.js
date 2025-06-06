@@ -5,6 +5,7 @@ import Link from 'next/link'
 import SubHero from '@/components/(site)/subhero/subhero';
 import Label from '@/components/(site)/label/label';
 import TextContainer from '@/components/(site)/textContainer/textContainer';
+import EventsTeaserSmall from '@/components/(site)/events/eventsTeaserSmall/eventsTeaserSmall';
 
 export default function Page() {
     
@@ -45,6 +46,8 @@ export default function Page() {
                         </div>                        
 
                     <Car />
+
+                    <EventsTeaserSmall />
             </div>
         </>
 
