@@ -1,11 +1,21 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
 import styles from './navigation.module.css';
-import { FaBars, FaXmark } from 'react-icons/fa6';
+import { FaBars, FaXmark, FaRegCalendar, FaHouse, FaUserGroup, FaHandshake, FaRegMessage, FaCarSide  } from 'react-icons/fa6';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { getMenuData } from '@/services/data.service';
+
+const iconMap = {
+    'Forside': <FaHouse />,
+    'Bilen': <FaCarSide />,
+    'Om os': <FaUserGroup />,
+    'Events': <FaRegCalendar />,
+    'Sponsorer': <FaHandshake />,
+    'Kontakt': <FaRegMessage />
+}
+
 
 const Navigation = () => {
 
@@ -101,14 +111,22 @@ const Navigation = () => {
                         {Array.isArray(menuData.link) &&
                             menuData.link.map( (menu) => (
 
+                                
+
                                 <Link 
                                     ref={menuRef} 
                                     key={menu.id} 
                                     href={menu.href} 
                                     className={pathname === menu.href ? styles.active : ''}
                                 >
+                                    {iconMap[menu.text] && (
+                                        <>
+                                        {iconMap[menu.text]}
+                                        
+                                        </>
+                                    )}
                                     {/* {menu?.icon && <span className={styles.menuIcon}>{menu?.icon}</span>} {menu.link.text}</Link> */}
-                                    {menu.text}
+                                    <span>{menu.text}</span>
                                 </Link>
                             
                             ))}
@@ -127,7 +145,13 @@ const Navigation = () => {
                         href={menu.href} 
                         className={pathname === menu.href ? styles.active : ''}
                     >
-                        {menu.text}</Link>
+                        {iconMap[menu.text] && (
+                            <>
+                                {iconMap[menu.text]}
+                            </>
+                        )}
+                        <span>{menu.text}</span>
+                    </Link>
                 ))}
             </div>
 
