@@ -17,7 +17,7 @@
     background: rgb(17 24 39);
     border-radius: 0.5rem;
 
-    border: 1px solid rgb(31 41 55 / 1);
+    border: 1px solid rgb(31, 41, 55);
     padding: 1.5rem;
 }
 .card .icon {
@@ -54,12 +54,13 @@
     align-items: center;
     background: rgb(59 130 246 / 0.1);
     border-radius: 0.5rem;
+    transition: all 0.25s ease-in-out;
 
 }
 .icon svg {
     height: 1.5rem;
     width: 1.5rem;
-    color: rgb(96 165 250);
+    color: var(--heading-color);
 }
 
 
@@ -73,10 +74,15 @@
     .card {
         transition: all 0.25s ease-in-out;
     }
+
+    .card:hover .icon {
+        background: rgb(59 130 246 / 0.2);
+    }
  
     .card:hover {
         background: rgb(31 41 55 / 0.5);
         border: 1px solid rgb(59 130 246 / 0.3);
+        transform: translateY(-0.25rem);
     }
 }
 
