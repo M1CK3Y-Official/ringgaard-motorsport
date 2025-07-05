@@ -98,8 +98,8 @@ export const getEventsData = async () => {
         const today = new Date().toISOString().split('T')[0];
         const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/events?filters[startDate][$gt]=${today}&sort=startDate:asc&populate[image][fields][0]=url&populate[image][fields][1]=alternativeText&populate[image][fields][2]=width&populate[image][fields][3]=height&populate[racetrack][populate][image][fields][0]=url&populate[racetrack][populate][image][fields][1]=alternativeText&populate[racetrack][populate][image][fields][2]=width&populate[racetrack][populate][image][fields][3]=height&populate[racetrack][fields][0]=name&populate[racetrack][fields][1]=slug&populate[racetrack][fields][2]=location`);
         const data = await response.json();
-        const events = data?.data || [];
-        return events;
+        // const events = data?.data || [];
+        return data?.data || [];
     } catch (error) {
         console.log("Fejl ved at hente Events data:", error);
         throw error;
@@ -115,6 +115,19 @@ export const getEventsTeaserBigData = async () => {
         return data?.data  || [];
     } catch (error) {
         console.log("Fejl ved at hente Events Teaser Big data:", error);
+        throw error;
+    }
+}
+
+export const getEventsTeaserSmallData = async () => {
+    try {
+        const today = new Date().toISOString().split('T')[0];
+        const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/events?filters[startDate][$gt]=${today}&sort=startDate:asc&pagination[limit]=3&populate[image][fields][0]=url&populate[image][fields][1]=alternativeText&populate[image][fields][2]=width&populate[image][fields][3]=height&populate[racetrack][populate][image][fields][0]=url&populate[racetrack][populate][image][fields][1]=alternativeText&populate[racetrack][populate][image][fields][2]=width&populate[racetrack][populate][image][fields][3]=height&populate[racetrack][fields][0]=name&populate[racetrack][fields][1]=slug&populate[racetrack][fields][2]=location`);
+        const data = await response.json();
+        console.log("Events Teaser Small Data:", data.data);
+        return data?.data  || [];
+    } catch (error) {
+        console.log("Fejl ved at hente Events Teaser Small data:", error);
         throw error;
     }
 }

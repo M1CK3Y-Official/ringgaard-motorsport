@@ -5,7 +5,7 @@ import { getCars } from '@/services/data.service';
 import Image from "next/image"
 import Spinner from '@/components/(site)/spinner/spinner';
 import { FaWeightHanging, FaClock, FaBolt } from 'react-icons/fa6';
-import { FaTachometerAlt, FaCar } from 'react-icons/fa';
+import { FaTachometerAlt, FaCar, FaExclamationTriangle  } from 'react-icons/fa';
 import { PiEngineFill, PiSpeedometerFill  } from "react-icons/pi";
 
 
@@ -28,7 +28,12 @@ const Car = () => {
                 setCars(fetchedCars);
                 setIsLoading(false);
             } catch (error) {
-                setError('Kunne ikke hente biler'); 
+                setError(
+                <div className={styles.error}>
+                    <FaExclamationTriangle className={styles.errorIcon} />
+                    <h3>Fejl under hentning af biler</h3>
+                    <span>{error.message}</span>
+                </div>); 
             }
         }
 
@@ -38,7 +43,7 @@ const Car = () => {
     }, []);
 
     if (error) {
-        return <p>{error}</p>
+        return error
     }
 
 
@@ -87,7 +92,7 @@ const Car = () => {
 
                         <div className={styles.description}>
                             <span className={styles.carDescription}>
-                                Our primary racing machine, this 1934 Ford Coupe replica delivers exceptional performance with its high power-to-weight ratio and responsive handling.
+                                Vores flagskib racingmaskine med præcisionstunet aerodynamik, avanceret affjedring geometri, og en højtydende Yamaha kraftanlæg optimeret til maksimal banepræstation.
                             </span>
                         </div>
 

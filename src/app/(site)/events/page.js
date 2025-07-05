@@ -2,6 +2,7 @@ import SubHero from '@/components/(site)/subhero/subhero';
 import styles from './page.module.css';
 import Label from '@/components/(site)/label/label';
 import Image from 'next/image';
+import Events from '@/components/(site)/events/events';
 
 export default function Page() {
 
@@ -20,6 +21,8 @@ export default function Page() {
                 <div className={'textContainer'}>
                     Events
                 </div>
+
+            <Events />
 
         </div>
 

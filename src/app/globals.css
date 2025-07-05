@@ -124,7 +124,6 @@ p.body {
 }
 
 .sectionWrapper {
-  /* padding: 5rem 1rem; */
   padding: 5rem clamp(1rem, 0.0458rem + 4.0712vw, 2rem);
   max-width: 1400px;
   margin: 0 auto;
@@ -139,7 +138,6 @@ br {
 .textContainer {
   max-width: 56rem;
   margin: 0 auto;
-  /* padding: 0 2rem; */
   margin-bottom: 4rem;
  
 }

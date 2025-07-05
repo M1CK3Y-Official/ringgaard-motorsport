@@ -184,6 +184,33 @@
     margin-bottom: 5rem;
 }
 
+.error {
+    color: red;
+    font-size: 1rem;
+    text-align: center;
+    padding: 1rem;
+    max-width: 72rem;
+    margin: 2rem auto;
+    background-color: rgba(255, 0, 0, 0.1);
+    border-radius: 0.5rem;
+}
+.error h3 {
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+.error span {
+    display: block;
+    margin-top: 0.5rem;
+    color: rgb(156, 163, 175);
+    font-weight: 800;
+}
+
+.errorIcon {
+    color: red;
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
 @media screen and (min-width: 768px) {
 
     .carContainer {
