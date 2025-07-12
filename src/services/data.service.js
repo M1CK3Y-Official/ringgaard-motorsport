@@ -106,6 +106,19 @@ export const getEventsData = async () => {
     }
 }
 
+
+export const getEventsDataByID = async (id) => {
+    try {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/events?populate=*`);
+        const data = await response.json();
+        const events = data?.data || [];
+        return events.find(event => event.id == id) || null;
+    } catch (error) {
+        console.log("Fejl ved at hente Events data:", error);
+        throw error;
+    }
+};
+
 export const getEventsTeaserBigData = async () => {
     try {
         const today = new Date().toISOString().split('T')[0];

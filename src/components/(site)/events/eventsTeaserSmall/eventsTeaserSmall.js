@@ -66,7 +66,7 @@ const EventsTeaserSmall = () => {
 
   return (
     <div className={styles.eventsTeaserSmall}>
-      <div className={styles.textContainer}>
+      <div className={`${styles.textContainer} textContainer`}>
         <Label>2025 Sæson</Label>
         <h2 className={styles.title}>
           <span>Kommende </span>Events

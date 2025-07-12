@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import styles from "./events.module.css";
 import { getEventsData } from "@/services/data.service";
 import Image from "next/image";
+import Link from "next/link";
 
 const Events = () => {
   const [eventsData, setEventsData] = useState([]);
@@ -38,25 +39,63 @@ const Events = () => {
               />
 
               <h3 className={styles.eventTitle}>{event.attributes.title}</h3>
-
+              <p className={styles.eventRacetrack}>
+                {event.attributes.racetrack.data.attributes.name}
+              </p>
               <p className={styles.eventDate}>
                 {new Date(event.attributes.startDate).toLocaleDateString()}
               </p>
 
               <div className={styles.eventDescription}>
                 {event.attributes.test &&
-                  event.attributes.test.map((item, idx) => (
-
-                    <div key={idx}>
-                      {item.type === "paragraph" &&
-                        item.children.map((child, cidx) => (
-                          <p key={cidx}>{child.text}</p>
-                        ))}
-                    </div>
-
-                  ))}
+                  event.attributes.test.map((item, idx) => {
+                    if (item.type === "heading") {
+                      return (
+                        <h4 key={idx} className={styles.heading}>
+                          {item.children.map((child, cidx) => (
+                            <span key={cidx}>{child.text}</span>
+                          ))}
+                        </h4>
+                      );
+                    }
+                    if (item.type === "paragraph") {
+                      return (
+                        <div key={idx} className={styles.paragraph}>
+                          
+                            {item.children.map((child, cidx) => {
+                              if (child.type === "link") {
+                                return (
+                                  <Link key={cidx} href={child.url} target="_blank" rel="noopener noreferrer" className={styles.ticketLink}>
+                                    {child.children &&
+                                      child.children.map((linkChild, lidx) => (
+                                        <p key={lidx}>{linkChild.text}</p>
+                                      ))}
+                                  </Link>
+                                );
+                              }
+                              return <p key={cidx}>{child.text}</p>;
+                            })}
+                          
+                        </div>
+                      );
+                    }
+                    if (item.type === "list" && item.format === "unordered") {
+                      return (
+                        <ul key={idx}>
+                          {item.children.map((listItem, liIdx) => (
+                            <li key={liIdx}>
+                              {listItem.children.map((child, cidx) => (
+                                <span key={cidx}>{child.text}</span>
+                              ))}
+                            </li>
+                          ))}
+                        </ul>
+                      );
+                    }
+                    // Optionally handle other types here
+                    return null;
+                  })}
               </div>
-
             </div>
           ))}
         </div>

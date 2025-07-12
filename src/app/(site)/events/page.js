@@ -19,7 +19,13 @@ export default function Page() {
             <div className="wrapper">
                 
                 <div className={'textContainer'}>
-                    Events
+                    <Label>2025 Sæson</Label>
+                    <h2>Kommende Events</h2>
+                    <div className='body'>
+                        <p>
+                        Mathias Ringgaard Motorsport er et dansk motorsports team med ambitionerne helt i top!
+                        </p>
+                    </div>
                 </div>
 
             <Events />

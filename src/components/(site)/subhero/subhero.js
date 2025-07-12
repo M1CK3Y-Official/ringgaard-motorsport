@@ -19,11 +19,13 @@ const SubHero = ({config}) => {
             <div className={styles.overlay}></div>
 
             <div className={styles.header}>
+                <div className={styles.breadCrumbs}>
+                    {config.subtitle ? <p><Link href="/">Forside</Link> <FaChevronRight/> {config.subtitle}</p> : ''}
+                </div>
                 <span className={styles.title}>
                     {restOfTitle} <span className={styles.lastWord}>{lastWord}</span>
                 </span>
 
-                {config.subtitle ? <p><Link href="/">Forside</Link> <FaChevronRight/> {config.subtitle}</p> : ''}
             </div>
         </header>
     )

@@ -6,6 +6,8 @@
         width: 100vw;
         overflow: hidden;
         position: relative;
+        display: flex;
+        justify-content: center;
     }
     /* .subhero::after {
         content: '';
@@ -46,8 +48,8 @@ background: linear-gradient(to top, rgb(3, 7, 18, 0.5), transparent, transparent
     .header {
         height: 100%;
         max-height: calc(100% - 4rem);
-        max-width: 1920px;
-        width: 100vw;
+        max-width: 1400px;
+        width: 100%;
         position: absolute;
         top: 4rem;
         display: flex;
@@ -59,7 +61,6 @@ background: linear-gradient(to top, rgb(3, 7, 18, 0.5), transparent, transparent
     .header .title {
         font-size: var(--font-size-subhero);
         color: white;
-        text-align: center;
         font-weight: 700;
         margin: 0;
         padding: 0;
@@ -69,15 +70,14 @@ background: linear-gradient(to top, rgb(3, 7, 18, 0.5), transparent, transparent
         color: var(--heading-color);
     }
 
-    .header p a {
+    .header .breadCrumbs p a {
         color: #808080;
-        font-weight: 300; 
     }
-    .header p  {
+    .header .breadCrumbs p {
         color: var(--heading-color);
         font-size: 1.125rem;
     }
-    .header p svg {
+    .header .breadCrumbs p svg {
         color: #808080;
         font-size: 0.75rem;
     }
@@ -95,6 +95,16 @@ background: linear-gradient(to top, rgb(3, 7, 18, 0.5), transparent, transparent
         .subhero img {
             max-width: 1920px;
             /* object-position: 50% 30%; */
+        }
+
+        .header {
+            max-width: 1400px;
+            padding: 1rem clamp(1rem, .0458rem + 4.0712vw, 2rem);
+            align-items: unset;
+        }
+
+        .header .breadCrumbs {
+            font-weight: 500;
         }
 
         
