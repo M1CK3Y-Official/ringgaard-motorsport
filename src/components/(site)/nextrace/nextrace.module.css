@@ -83,7 +83,12 @@
     border-radius: 50rem;
     border: 1px solid var(--car-border);
     color: var(--heading-color);
+    /* animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; */
     
+}
+
+.mobile svg {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 .mobile.open {
