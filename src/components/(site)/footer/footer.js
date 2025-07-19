@@ -69,7 +69,7 @@ const Footer = () => {
                                 {info.text}
                               </Link>
                             ) : (
-                              <Link href={info.href} target="_blank">
+                              <Link href={info.href} target="_self">
                                 {info.text}
                               </Link>
                             )}

@@ -47,21 +47,21 @@ return (
                                             <span className={styles.statIcon}><FaTrophy className={styles.icon}/></span>
                                             <span className={styles.statLabel}>Karrieresejre</span>
                                     </div>
-                                    <span className={styles.statValue}>15</span>
+                                    <span className={styles.statValue}>5+</span>
                             </div>
                             <div className={styles.stat}>
                                     <div className={styles.statTitle}>
                                             <div className={styles.statIcon}><FaMedal  className={styles.icon}/></div>
                                             <span className={styles.statLabel}>Podieplaceringer</span>
                                     </div>
-                                    <span className={styles.statValue}>28</span>
+                                    <span className={styles.statValue}>25+</span>
                             </div>
                             <div className={styles.stat}>
                                     <div className={styles.statTitle}>
                                             <span className={styles.statIcon}><FaRegCalendarDays  className={styles.icon}/></span>
                                             <span className={styles.statLabel}>Erfaring</span>
                                     </div>
-                                    <span className={styles.statValue}>8+ år</span>
+                                    <span className={styles.statValue}>12+ år</span>
                             </div>
                             <div className={styles.stat}>
                                     <div className={styles.statTitle}>
@@ -74,7 +74,7 @@ return (
 
                             <div className={styles.quote} data-aos="fade-right" data-aos-once="true" >
                                     <p>
-                                            &quot;Racing handler ikke kun om fart – det handler om præcision, strategi og den utrættelige jagt på perfektion. Hver omgang er en mulighed for at presse grænserne.&quot; 
+                                            &quot;Alle fortjener at opleve hvad motorsporten, og racerverdenen kan, og vi vil rigtig gerne være med til at sørge for at endnu flere unge får øjnene op for den fede sportsgren! Derfor er det også en stor ambition for os, at hjælpe andre unge i gang med sporten og brede sporten blandt folket!&quot; 
                                     </p>
                                     <span className={styles.quoteAuthor}>- Mathias Ringgaard</span>
                     </div>

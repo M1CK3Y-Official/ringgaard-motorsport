@@ -1,13 +1,146 @@
 .nextRace {
     position: absolute;
+    width: fit-content;
     right: 2rem;
     gap: .5rem;
     top: calc(0% + 4rem + 5px + 2rem);
     display: grid;
-    background-color: rgb(17 24 39);
+}
+
+
+
+.content {
     padding: 0.75rem;
+    display: none;
+    background-color: rgb(17 24 39);
+    border-radius: 0.5rem;
+    border: 1px solid var(--car-border);
+}
+
+.track {
+    font-size: 1rem;
+}
+
+.event {
+    display: grid;
+    gap: .5rem;
+}
+
+.dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: #60a5fa;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.date, .racetrack {
+    font-size: 0.75rem;
+    color: #d1d5db;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+.date svg, .racetrack svg {
+    width: .75rem;
+    height: .75rem;
+    
+}
+
+.status {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    font-size: 0.75rem;
+    color: rgb(96 165 250);
+    font-weight: 600;
+}
+
+.button {
+    color: rgb(96 165 250);
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+}
+.button svg {
+    width: .75rem;
+    height: .75rem;
+    margin-left: .25rem;
+}
+.button:hover {
+    color: rgb(59 130 246);
+    text-decoration: underline;
+}
+
+.mobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .75rem;
+    background-color: rgb(17 24 39);
+    border-radius: 50rem;
+    border: 1px solid var(--car-border);
+    color: var(--heading-color);
+    
+}
+
+.mobile.open {
+    display: none;
+}
+.content.open {
+    display: block;
+    opacity: 1;
+}
+
+.mobileClose {
+    display: none;
+}
+
+.mobileClose.open {
+    display: block;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* margin-bottom: 0.5rem; */
+}
+
+@keyframes pulse {
+    50% {
+        opacity: .5;
+    }
+}
+
+
+@media screen and (min-width:768px) {
+
+    .mobile {
+        display: none;
+    }
+    .content {
+        display: block;
+    }
+
+    .content {
+        background-color: unset;
+    }
+
+    .nextRace {
+    position: absolute;
+    width: fit-content;
+    right: 2rem;
+    gap: .5rem;
+    top: calc(0% + 4rem + 5px + 2rem);
+    display: grid;
+    background-color: rgb(17 24 39 / 0.5);
+    backdrop-filter: blur(10px);
     border-radius: 0.5rem;
     border: 1px solid rgb(31 41 55 / 1);
+    
 }
 .track {
     font-size: 1rem;
@@ -24,18 +157,17 @@
     background-color: #60a5fa;
     border-radius: 50%;
     margin-right: 0.5rem;
-    /* display: inline-flex; */
     animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-.date {
+.date, .racetrack {
     font-size: 0.75rem;
     color: #d1d5db;
     display: flex;
     align-items: center;
     gap: 0.25rem;
 }
-.date svg {
+.date svg, .racetrack svg {
     width: .75rem;
     height: .75rem;
     
@@ -54,6 +186,7 @@
     font-size: 0.875rem;
     display: flex;
     align-items: center;
+    width: fit-content;
 }
 .button svg {
     width: .75rem;
@@ -64,10 +197,4 @@
     color: rgb(59 130 246);
     text-decoration: underline;
 }
-
-
-@keyframes pulse {
-    50% {
-        opacity: .5;
-    }
 }

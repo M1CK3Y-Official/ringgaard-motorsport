@@ -7,8 +7,8 @@ import Events from '@/components/(site)/events/events';
 export default function Page() {
 
     const subheroConfig = {
-        title: 'Om Os',
-        subtitle: 'Om Os',
+        title: 'Kommende Events',
+        subtitle: 'Events',
         image: '/Heros/Om-os.jpg'
     }
 

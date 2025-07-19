@@ -8,7 +8,7 @@ import Link from 'next/link'
 export default function Page() {
 
     const subheroConfig = {
-        title: 'Sponsorer',
+        title: 'Teamet\'s Sponsorer',
         subtitle: 'Sponsorer',
         image: '/Heros/Om-os.jpg'
     }
