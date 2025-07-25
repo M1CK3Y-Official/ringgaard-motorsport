@@ -4,6 +4,7 @@ import Car from '@/components/(site)/car/car';
 import SubHero from '@/components/(site)/subhero/subhero';
 import Image from "next/image"
 import Link from 'next/link'
+import Sponsors from '@/components/(site)/sponsors/sponsors';
 
 export default function Page() {
 
@@ -15,30 +16,32 @@ export default function Page() {
 
     return (
 
-        <>
+        <div className={styles.page}>
         
             <SubHero config={subheroConfig} />
 
             <div className='wrapper'>
 
-                <div className={'textContainer'}>
+                <div className={'textContainer'} style={{ textAlign: 'center' }}>
                     <Label>samarbejdspartnere</Label>
-                    <h2>Kontakt os</h2>
+                    <h2>Der skal lyde en stor tak</h2>
                     <div className='body'>
                         <p>
-                            Hvis du har spørgsmål til mig eller teamet omkring et eller andet, eller hvis du gerne vil lave et samarbejde med os, så tøv ikke med at kontakte os! 
+                            Motorsport er dyrt, og intet af det i ser og læser her på siden ville aldrig kunne lade sig gøre uden vores fantastiske samarbejdspartnere.💙
                         </p>
 
                         <p>
-                            Vi kan kontaktes på:
+                            Der skal derfor lyde en kæmpe stor tak til vores sponsorer herunder, som gør det muligt for os at køre med i de danske mesterskaber. 🙏
                         </p>
                         
                     </div>
                 </div>
 
+                <Sponsors />
+
             </div>
         
-        </>
+        </div>
 
     )
 }

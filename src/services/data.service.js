@@ -85,7 +85,7 @@ export const getSponsorsData = async () => {
         const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/sponsors?populate[logo][fields][0]=url&populate[logo][fields][1]=width&populate[logo][fields][2]=height`);
         const data = await response.json();
         console.log("Sponsors Data:", data.data);
-        return data.data.attributes;
+        return data?.data || []; // Always return an array!
     } catch (error) {
         console.log("Fejl ved at hente Sponsors data:", error);
         throw error;
