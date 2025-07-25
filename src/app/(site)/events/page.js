@@ -23,7 +23,7 @@ export default function Page() {
                     <h2>Kommende Events</h2>
                     <div className='body'>
                         <p>
-                        Mathias Ringgaard Motorsport er et dansk motorsports team med ambitionerne helt i top!
+                        Join us trackside for the thrilling Danish Legend Car Cup season. Below you&apos;ll find our complete racing schedule, featuring events at Denmark&apos;s premier racing circuits. Each event offers a unique challenge for our team and an exciting experience for spectators.
                         </p>
                     </div>
                 </div>

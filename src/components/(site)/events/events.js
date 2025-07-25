@@ -7,6 +7,7 @@ import Link from "next/link";
 
 const Events = () => {
   const [eventsData, setEventsData] = useState([]);
+  const [selected, setSelectedTab] = useState("all");
 
   useEffect(() => {
     const fetchEventsData = async () => {
@@ -25,9 +26,19 @@ const Events = () => {
   return (
     <div>
       <div className={styles.wrapper}>
-        <div className={styles.textContainer}>Events</div>
 
         <div className={styles.eventsContainer}>
+
+          <div className={styles.bar}>
+            <div className={styles.options}>
+              <div className={styles.option} role="tab" aria-selected={selected === "all"} onClick={() => setSelectedTab("all")}>All Events</div>
+              <div className={styles.option} role="tab" aria-selected={selected === "upcoming"} onClick={() => setSelectedTab("upcoming")}>Upcoming</div>
+              <div className={styles.option} role="tab" aria-selected={selected === "past"} onClick={() => setSelectedTab("past")}>Past Events</div>
+              <div className={styles.option} role="tab" aria-selected={selected === "special"} onClick={() => setSelectedTab("special")}>Special Events</div>
+            </div>
+            <div className={styles.filter}>Filtered by: All Events</div>
+          </div>
+
           {eventsData.map((event) => (
             <div key={event.id} className={styles.eventCard}>
               <Image
