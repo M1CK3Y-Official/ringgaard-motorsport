@@ -9,7 +9,7 @@ import Sponsors from '@/components/(site)/sponsors/sponsors';
 export default function Page() {
 
     const subheroConfig = {
-        title: 'Teamet\'s Sponsorer',
+        title: 'Team Sponsorer',
         subtitle: 'Sponsorer',
         image: '/Heros/Om-os.jpg'
     }

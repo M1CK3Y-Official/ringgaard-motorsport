@@ -1,10 +1,11 @@
 .sponsors {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
     margin: auto;
     position: relative;
     justify-content: center;
+    
 }
 
 .sponsor {
@@ -16,6 +17,10 @@
     border-radius: 0.5rem;
     height: 8rem;
     border: 1px solid rgb(31 41 55 / 1);
+    /* max-width: 310px; */
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
@@ -45,11 +50,32 @@
     width: 100%;
     text-transform: uppercase;
     font-weight: 600;
-    font-size: xx-large;
+    font-size: clamp(1.3rem, 1.1087rem + 0.8163vw, 1.5rem);
 }
 
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
     .sponsors {
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    
+} */
+
+@media screen and (min-width: 768px) {
+    .sponsors {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+    
+    .sponsor:hover {
+        background: rgb(31 41 55 / 0.5);
+        border: 1px solid rgb(59 130 246 / 0.3);
+    }
+    .sponsor {
+        transition: all 0.25s ease-in-out;
+    }
+
+    .noLogo {
+        font-size: clamp(1.5rem, 1.0217rem + 2.0408vw, 2rem);
     }
 }

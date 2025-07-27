@@ -22,9 +22,9 @@ const SubHero = ({config}) => {
                 <div className={styles.breadCrumbs}>
                     {config.subtitle ? <p><Link href="/">Forside</Link> <FaChevronRight/> {config.subtitle}</p> : ''}
                 </div>
-                <span className={styles.title}>
+                <h1 className={styles.title}>
                     {restOfTitle} <span className={styles.lastWord}>{lastWord}</span>
-                </span>
+                </h1>
 
             </div>
         </header>

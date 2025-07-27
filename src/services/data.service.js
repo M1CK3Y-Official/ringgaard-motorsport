@@ -82,7 +82,7 @@ export const getSponsorsTeaserData = async () => {
 
 export const getSponsorsData = async () => {
     try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/sponsors?populate[logo][fields][0]=url&populate[logo][fields][1]=width&populate[logo][fields][2]=height`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/sponsors?pagination[pageSize]=100&populate[logo][fields][0]=url&populate[logo][fields][1]=width&populate[logo][fields][2]=height`);
         const data = await response.json();
         console.log("Sponsors Data:", data.data);
         return data?.data || []; // Always return an array!
