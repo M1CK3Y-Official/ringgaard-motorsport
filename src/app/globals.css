@@ -30,6 +30,13 @@
   --font-size-body: 1.125rem;
 }
 
+@media screen and (max-width: 767px) {
+  :root {
+    /* --font-size-hero: 6rem; */
+    --font-size-subhero: clamp(2rem, -0.3855rem + 10.1781vw, 4.5rem); 
+  }
+}
+
 /* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
