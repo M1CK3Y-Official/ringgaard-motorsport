@@ -11,6 +11,11 @@
     background-color: rgb(17 24 39);
 }
 
+.wrapper {
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
 .eventImage {
   width: 100%;
   height: auto;
@@ -52,12 +57,21 @@
   gap: 1rem;
 }
 
+.buttonGroup .eventButton:nth-child(2) .button {
+  background-color: var(--tab-background);
+  color: var(--heading-color);
+  border: 1px solid var(--heading-color);
+}
+
 .button {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 0.5rem 1rem;
+  gap: 1rem;
   background-color: var(--heading-color);
   color: black;
-  border-radius: 0.5rem;
+  border-radius: 0.25rem;
   text-decoration: none;
   transition: background-color 0.2s ease, color 0.2s ease;
 }

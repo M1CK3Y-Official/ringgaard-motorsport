@@ -4,6 +4,8 @@ import styles from "./events.module.css";
 import { getEventsData } from "@/services/data.service";
 import Image from "next/image";
 import Link from "next/link";
+import { FaCircleInfo  } from "react-icons/fa6";
+import { FaExternalLinkAlt  } from "react-icons/fa";
 
 function formatEventDate(start, end) {
   const optionsMonth = { month: "long" };
@@ -144,10 +146,10 @@ const Events = () => {
                 <div className={styles.buttonGroup}>
 
                   <div className={styles.eventButton}>
-                    <Link href={`/events/${event.id}`} className={styles.button}>Event Details</Link>
+                    <Link href={`/events/${event.id}`} className={styles.button}>Event Detaljer <FaCircleInfo /></Link>
                   </div>
                   <div className={styles.eventButton}>
-                    <Link href={event.attributes.ticket} target="_blank"  className={styles.button}>Køb Biletter</Link>
+                    <Link href={event.attributes.ticket} target="_blank"  className={styles.button}>Køb Biletter <FaExternalLinkAlt /></Link>
                   </div>
                 </div>
 
