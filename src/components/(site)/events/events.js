@@ -4,7 +4,7 @@ import styles from "./events.module.css";
 import { getEventsData } from "@/services/data.service";
 import Image from "next/image";
 import Link from "next/link";
-import { FaCircleInfo  } from "react-icons/fa6";
+import { FaCircleInfo, FaRegCalendar, FaLocationDot, FaTrophy, FaRegClock, FaFlagCheckered, FaFilter   } from "react-icons/fa6";
 import { FaExternalLinkAlt  } from "react-icons/fa";
 
 function formatEventDate(start, end) {
@@ -45,6 +45,8 @@ const Events = () => {
   const [eventsData, setEventsData] = useState([]);
   const [selected, setSelectedTab] = useState("all");
 
+  
+
   useEffect(() => {
     const fetchEventsData = async () => {
       try {
@@ -72,43 +74,60 @@ const Events = () => {
               <div className={styles.option} role="tab" aria-selected={selected === "past"} onClick={() => setSelectedTab("past")}>Past Events</div>
               <div className={styles.option} role="tab" aria-selected={selected === "special"} onClick={() => setSelectedTab("special")}>Special Events</div>
             </div>
-            <div className={styles.filter}>Filtered by: All Events</div>
+            <div className={styles.filter}><FaFilter /> Sorteret efter: {selected}</div>
           </div>
+
+          {/* {console.log("filter", selected)} */}
 
           <div className={styles.eventsList}>
           {eventsData.map((event) => (
             <div key={event.id} className={styles.eventCard}>
 
               <div className={styles.eventImage}>
-                <Image
-                  src={event.attributes.image.data.attributes.url}
-                  alt={`${event.attributes.image.data.attributes.alternativeText} : ''`}
-                  width={event.attributes.image.data.attributes.width}
-                  height={event.attributes.image.data.attributes.height}
-                  className={styles.eventImage}
+
+                  <Image
+                    src={event.attributes.image.data.attributes.url}
+                    alt={`${event.attributes.image.data.attributes.alternativeText} : ''`}
+                    width={event.attributes.image.data.attributes.width}
+                    height={event.attributes.image.data.attributes.height}
+                    className={styles.eventImage}
                   />
+                <div className={styles.overlay}>
+                  <div className={styles.overlayContent}>
+                    Legend Car Cup
+                  </div>
+                </div>
               </div>
 
               <div className={styles.eventDetails}>
-                <h3 className={styles.eventTitle}>{event.attributes.title}</h3>
+                <h3 className={styles.eventTitle}><FaTrophy className={styles.icon} /><span>{event.attributes.title}</span></h3>
                 <p className={styles.eventRacetrack}>
                   {event.attributes.racetrack.data.attributes.name}
                 </p>
                 <div className={styles.eventInfo}>
-                  <div className={styles.eventDate}>
-                    <div>
+                  <div className={styles.eventDate} title="Begivenhedens dato">
+                    <span>
+                      <FaRegCalendar className={styles.icon}/>
                       {formatEventDate(event.attributes.startDate,event.attributes.endDate)}
-                    </div>
+                    </span>
                   </div>
-                  <div className={styles.eventTime}>
-                    <p>
-                      {event.attributes.startDate && new Date(event.attributes.startDate).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-                    </p>
+                  <div className={styles.eventTime} title="Begivenhedens tidspunkt">
+                    <span>
+                      <FaRegClock className={styles.icon}/>
+                      kl {event.attributes.startDate && new Date(event.attributes.startDate).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', })}
+                    </span>
                   </div>
-                  <div className={styles.eventLocation}>
-                    <p>
+                  <div className={styles.eventLocation} title="Begivenhedens lokation">
+                    <span>
+                      <FaLocationDot className={styles.icon}/>
                       {event.attributes.racetrack.data.attributes.location}
-                    </p>
+                    </span>
+                  </div>
+                  <div className={styles.eventRaceDistance} title="Banens distance">
+                    <span>
+                      <FaFlagCheckered className={styles.icon}/>
+                      {Number(event.attributes.racetrack.data.attributes.distance).toLocaleString("da-DK")} km
+                    </span>
                   </div>
                 </div>
 
@@ -146,7 +165,7 @@ const Events = () => {
                 <div className={styles.buttonGroup}>
 
                   <div className={styles.eventButton}>
-                    <Link href={`/events/${event.id}`} className={styles.button}>Event Detaljer <FaCircleInfo /></Link>
+                    <Link href={`/events/${event.id}`} className={styles.button}>Flere Detaljer <FaCircleInfo /></Link>
                   </div>
                   <div className={styles.eventButton}>
                     <Link href={event.attributes.ticket} target="_blank"  className={styles.button}>Køb Biletter <FaExternalLinkAlt /></Link>

@@ -96,7 +96,7 @@ export const getSponsorsData = async () => {
 export const getEventsData = async () => {
     try {
         const today = new Date().toISOString().split('T')[0];
-        const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/events?filters[startDate][$gt]=${today}&sort=startDate:asc&populate[image][fields][0]=url&populate[image][fields][1]=alternativeText&populate[image][fields][2]=width&populate[image][fields][3]=height&populate[racetrack][populate][image][fields][0]=url&populate[racetrack][populate][image][fields][1]=alternativeText&populate[racetrack][populate][image][fields][2]=width&populate[racetrack][populate][image][fields][3]=height&populate[racetrack][fields][0]=name&populate[racetrack][fields][1]=slug&populate[racetrack][fields][2]=location`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/events?filters[startDate][$gt]=${today}&sort=startDate:asc&populate[image][fields][0]=url&populate[image][fields][1]=alternativeText&populate[image][fields][2]=width&populate[image][fields][3]=height&populate[racetrack][populate][image][fields][0]=url&populate[racetrack][populate][image][fields][1]=alternativeText&populate[racetrack][populate][image][fields][2]=width&populate[racetrack][populate][image][fields][3]=height&populate[racetrack][fields][0]=name&populate[racetrack][fields][1]=slug&populate[racetrack][fields][2]=location&populate[racetrack][fields][3]=distance`);
         const data = await response.json();
         const events = data?.data || [];
         return events; 
