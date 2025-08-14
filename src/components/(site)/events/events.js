@@ -45,8 +45,6 @@ const Events = () => {
   const [eventsData, setEventsData] = useState([]);
   const [selected, setSelectedTab] = useState("all");
 
-  
-
   useEffect(() => {
     const fetchEventsData = async () => {
       try {
@@ -61,6 +59,26 @@ const Events = () => {
     fetchEventsData();
   }, []);
 
+
+  const filteredEvents = eventsData.filter(event => {
+    if (selected === "all") return true;
+    if (selected === "upcoming") {
+      return new Date(event.attributes.startDate) > new Date(); 
+    }
+    return event.attributes.type?.toLowerCase() === selected.toLowerCase();
+  });
+
+  const eventTypes = ["All", ...new Set(eventsData.map(event => event.attributes.type))];
+
+  const typeColors = {
+    "legend car cup": "#025bff",
+    "special event": "#FF5733",
+    "upcoming": "#28a745",
+    "default": "#CCCCCC"
+  }
+
+
+
   return (
     <div>
       <div className={styles.wrapper}>
@@ -69,18 +87,16 @@ const Events = () => {
 
           <div className={styles.bar}>
             <div className={styles.options}>
-              <div className={styles.option} role="tab" aria-selected={selected === "all"} onClick={() => setSelectedTab("all")}>All Events</div>
-              <div className={styles.option} role="tab" aria-selected={selected === "upcoming"} onClick={() => setSelectedTab("upcoming")}>Upcoming</div>
-              <div className={styles.option} role="tab" aria-selected={selected === "past"} onClick={() => setSelectedTab("past")}>Past Events</div>
-              <div className={styles.option} role="tab" aria-selected={selected === "special"} onClick={() => setSelectedTab("special")}>Special Events</div>
+              {eventTypes.map((type) => (
+                <div key={type} className={styles.option} role="tab" aria-selected={selected === type.toLowerCase()} onClick={() => setSelectedTab(type.toLowerCase())}>{type}</div>
+              ))}
+              
             </div>
-            <div className={styles.filter}><FaFilter /> Sorteret efter: {selected}</div>
+            <span className={styles.filter}><FaFilter /> Sorteret efter: {(selected === "all" ? "Alle Events" : selected).split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")}</span>
           </div>
 
-          {/* {console.log("filter", selected)} */}
-
           <div className={styles.eventsList}>
-          {eventsData.map((event) => (
+          {filteredEvents.map((event) => (
             <div key={event.id} className={styles.eventCard}>
 
               <div className={styles.eventImage}>
@@ -93,8 +109,8 @@ const Events = () => {
                     className={styles.eventImage}
                   />
                 <div className={styles.overlay}>
-                  <div className={styles.overlayContent}>
-                    Legend Car Cup
+                  <div className={styles.eventType} style={{ backgroundColor: typeColors[event.attributes.type?.toLowerCase()] || typeColors.default}}>
+                    {event.attributes.type}
                   </div>
                 </div>
               </div>
