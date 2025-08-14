@@ -68,15 +68,28 @@ const Events = () => {
     return event.attributes.type?.toLowerCase() === selected.toLowerCase();
   });
 
-  const eventTypes = ["All", ...new Set(eventsData.map(event => event.attributes.type))];
+  // const eventTypes = ["All", ...new Set(eventsData.map(event => event.attributes.type))];
 
   const typeColors = {
     "legend car cup": "#025bff",
-    "special event": "#FF5733",
-    "upcoming": "#28a745",
-    "default": "#CCCCCC"
+    "special event": "#912fd1ff",
+    "championship": "#FF5733",
+    "default": "#28a745"
   }
 
+  const filters = [
+    { key: "all", label: "Alle Events" },
+    { key: "legend car cup", label: "Legend Car Cup" },
+    { key: "special event", label: "Special Events" },
+    { key: "championship", label: "Mesterskab" },
+  ];
+
+  const typeLabels = {
+    all: "Alle Events",
+    championship: "Mesterskab",
+    "legend car cup": "Legend Car Cup",
+    "special event": "Special Event"
+  }
 
 
   return (
@@ -87,12 +100,30 @@ const Events = () => {
 
           <div className={styles.bar}>
             <div className={styles.options}>
-              {eventTypes.map((type) => (
-                <div key={type} className={styles.option} role="tab" aria-selected={selected === type.toLowerCase()} onClick={() => setSelectedTab(type.toLowerCase())}>{type}</div>
-              ))}
+              {filters.map(filter => {
+                const hasEvents =
+                  filter.key === "all"
+                    ? eventsData.length > 0
+                    : eventsData.some(event =>
+                        event.attributes.type.toLowerCase() === filter.key.toLocaleLowerCase()
+                    );
+              return (
+                <button 
+                  key={filter.key} 
+                  className={styles.option} 
+                  role="tab" 
+                  aria-selected={selected === filter.key} 
+                  onClick={() => hasEvents && setSelectedTab(filter.key)} 
+                  disabled={!hasEvents}
+                  >
+                    {filter.label}
+                  </button>
+              );
+})}
               
             </div>
-            <span className={styles.filter}><FaFilter /> Sorteret efter: {(selected === "all" ? "Alle Events" : selected).split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")}</span>
+            <span className={styles.filter}><FaFilter /> Sorteret efter: {typeLabels[selected] || selected}</span>
+            {/* <span className={styles.filter}><FaFilter /> Sorteret efter: {(selected === "all" ? "Alle Events" : selected).split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")}</span> */}
           </div>
 
           <div className={styles.eventsList}>
@@ -101,16 +132,17 @@ const Events = () => {
 
               <div className={styles.eventImage}>
 
-                  <Image
-                    src={event.attributes.image.data.attributes.url}
-                    alt={`${event.attributes.image.data.attributes.alternativeText} : ''`}
-                    width={event.attributes.image.data.attributes.width}
-                    height={event.attributes.image.data.attributes.height}
-                    className={styles.eventImage}
-                  />
+                  {event.attributes?.image?.data?.attributes && (
+                    <Image
+                    src={event.attributes?.image?.data?.attributes?.url}
+                    alt={`${event.attributes?.image?.data?.attributes?.alternativeText} : ''`}
+                    width={event.attributes?.image?.data?.attributes?.width}
+                    height={event.attributes?.image?.data?.attributes?.height}
+                    className={styles.eventImage}/>
+                  )}
                 <div className={styles.overlay}>
                   <div className={styles.eventType} style={{ backgroundColor: typeColors[event.attributes.type?.toLowerCase()] || typeColors.default}}>
-                    {event.attributes.type}
+                    {typeLabels[event.attributes.type?.toLowerCase()] || event.attributes.type}
                   </div>
                 </div>
               </div>
@@ -183,9 +215,11 @@ const Events = () => {
                   <div className={styles.eventButton}>
                     <Link href={`/events/${event.id}`} className={styles.button}>Flere Detaljer <FaCircleInfo /></Link>
                   </div>
-                  <div className={styles.eventButton}>
-                    <Link href={event.attributes.ticket} target="_blank"  className={styles.button}>Køb Biletter <FaExternalLinkAlt /></Link>
-                  </div>
+                  {event.attributes.ticket && (
+                    <div className={styles.eventButton}>
+                      <Link href={event.attributes.ticket} target="_blank"  className={styles.button}>Køb Biletter <FaExternalLinkAlt /></Link>
+                    </div>
+                  )}
                 </div>
 
               </div>

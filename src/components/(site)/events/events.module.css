@@ -123,6 +123,7 @@
   padding: 0.25rem;
   border-radius: 0.25rem;
   width: fit-content;
+  
 
 }
 
@@ -137,6 +138,7 @@
   cursor: pointer;
   transition: background-color 0.2s ease, color 0.2s ease;
   font-weight: 500;
+  font-family: inherit;
 }
 .bar .option[aria-selected="true"] {
   background-color: var(--tab-background);
@@ -194,6 +196,10 @@
   color: rgb(156 163 175);
 }
 
+.option:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
 
 @media screen and (min-width: 768px) {
   .eventCard {
