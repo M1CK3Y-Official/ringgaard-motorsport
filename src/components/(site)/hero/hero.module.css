@@ -6,25 +6,26 @@
 
 .hero {
     /* max-height: 1080px; */
-    height: 100vh;
+    height: 100dvh;
     max-width: 768px;
     width: 100vw;
     overflow: hidden;
+    height: calc(100% - 4rem - 5px);
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: calc(4rem + 5px + env(safe-area-inset-top));
+    /* padding-top: calc(4rem + 5px + env(safe-area-inset-top)); */
 }
 
-.hero, .header, .content {
+/* .hero, .header, .content {
     height: 100vh;
 }
 @supports (height: 100dvh) {
     .hero, .header, .content {
         height: 100dvh;
     }
-}
+} */
 
 .hero::after {
     content: "";
@@ -40,32 +41,33 @@
     width: 100%;
     object-fit: cover;
     object-position: 50% 60%;
-    height: 100%;
+    height: calc(100% - 4rem - 5px);
+    max-height: calc(100vh - 4rem - 5px);
     overflow: hidden;
     display: block;
-    
 }
 
 .hero .overlay {
     /* background: linear-gradient(to bottom, rgba(24, 16, 242, 0.2) 0%, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0) 100%), rgba(24, 24, 24, 0.84); */
     background: linear-gradient(180deg, rgb(3 7 18) 0%, rgba(12, 14, 21, 0.5) 50%, rgb(3 7 18) 100%);
     width: 100vw;
-    height: calc(100% - 4rem - 5px);
+    /* height: calc(100% - 4rem - 5px); */
+    height: 100%;
     position: absolute;
-    top: calc( 4rem + 5px);
+    top: 0;
+    margin: 0;
+    padding: 0;
 }
 
 .header {
     max-height: 1080px;
-    height: 100vh;
+    height: 100%;
     max-width: 48rem;
     width: 100%;
     
     display: flex;
     justify-content: center;
     flex-direction: column;
-    /* gap: 1.5rem; */
-    
 }
 
 
@@ -79,11 +81,10 @@
     max-width: 1400px;
     width: 100%;
     display: flex;
-    height: calc(100% - 4rem - 5px);
+    height: 100%;
     align-items: center;
-    /* justify-content: center; */
     position: absolute;
-    bottom: 0;
+    top: 0;
     padding: 1rem clamp(1rem, .0458rem + 4.0712vw, 2rem);
 }
 
