@@ -13,7 +13,7 @@ export default function Page() {
     }
 
     return (
-        <main>
+        <>
             <SubHero config={subheroConfig} />
 
             <div className="wrapper">
@@ -32,7 +32,7 @@ export default function Page() {
 
         </div>
 
-        </main>
+        </>
 
     )
 }

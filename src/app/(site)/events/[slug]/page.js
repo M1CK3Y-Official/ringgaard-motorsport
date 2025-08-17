@@ -5,17 +5,13 @@ import Label from "@/components/(site)/label/label";
 import Image from "next/image";
 import Events from "@/components/(site)/events/events";
 // import { useEffect, useState } from 'react';
-import { getEventsDataByID } from "@/services/data.service";
+import { getEventsDataBySlug } from "@/services/data.service";
 
 export default async function Page({ params }) {
-  const id = params.id;
-  const event = await getEventsDataByID(id);
+  const slug = params.slug;
+  const event = await getEventsDataBySlug(slug);
 
-  const subheroConfig = {
-    title: "Event",
-    subtitle: "Events",
-    image: "/Heros/Om-os.jpg",
-  };
+  
 
   if (!event) return <div>Eventet findes ikke</div>;
 
@@ -38,21 +34,30 @@ export default async function Page({ params }) {
   //     fetchEventsData();
   // }, [params.id]);
 
+  // const subheroConfig = {
+  //   title: "Event",
+  //   subtitle: "Events",
+  //   image: "/Heros/Om-os.jpg",
+  // };
+
   return (
     <>
       {/* <SubHero config={subheroConfig} /> */}
+      <div className={styles.header}>
+
         <div className={styles.imageContainer}>
 
             {image?.data && (
-                <Image
-                src={image.data.attributes.url}
-                alt={image.data.attributes.alternativeText || ""}
-                width={image.data.attributes.width}
-                height={image.data.attributes.height}
-                className="rounded-xl mb-6"
-                />
+              <Image
+              src={image.data.attributes.url}
+              alt={image.data.attributes.alternativeText || ""}
+              width={image.data.attributes.width}
+              height={image.data.attributes.height}
+              className="rounded-xl mb-6"
+              />
             )}
         </div>
+      </div>
 
       <div className="wrapper">
 

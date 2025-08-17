@@ -153,6 +153,11 @@ br {
   line-height: 1.625;
   font-size: 1.125rem;
 }
+
+main {
+  position: relative;
+  margin-top: calc(4rem + 5px);
+}
 /* 
 @media screen and (max-width: 768px) {
   .sectionWrapper {

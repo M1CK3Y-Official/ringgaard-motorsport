@@ -108,14 +108,14 @@ export const getEventsData = async () => {
 }
 
 
-export const getEventsDataByID = async (id) => {
+export const getEventsDataBySlug = async (slug) => {
     try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/events/${id}?populate=*`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/events/?filters[slug][$eq]=${slug}&populate=*`, {cache: 'no-store'});
         const data = await response.json();
-        return data?.data || null;
+        return data?.data[0] || null;
         // return events.find(event => event.id == id) || null;
     } catch (error) {
-        console.log("Fejl ved at hente Eventet by ID:", error);
+        console.log("Fejl ved at hente Eventet by slug:", error);
         throw error;
     }
 };

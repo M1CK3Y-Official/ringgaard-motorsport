@@ -11,8 +11,11 @@ export default function siteLayout({children}) {
             <Navigation />
             <ToTopBtn />
             <div className={styles.layout}>
-                <Blob />
-            {children}
+                <main>
+
+                    <Blob />
+                    {children}
+                </main>
             </div>
             <Footer />
         </div>

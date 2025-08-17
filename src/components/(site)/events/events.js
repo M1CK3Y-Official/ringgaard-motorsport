@@ -213,7 +213,7 @@ const Events = () => {
                 <div className={styles.buttonGroup}>
 
                   <div className={styles.eventButton}>
-                    <Link href={`/events/${event.id}`} className={styles.button}>Flere Detaljer <FaCircleInfo /></Link>
+                    <Link href={`/events/${event.attributes.slug}`} className={styles.button}>Flere Detaljer <FaCircleInfo /></Link>
                   </div>
                   {event.attributes.ticket && (
                     <div className={styles.eventButton}>
