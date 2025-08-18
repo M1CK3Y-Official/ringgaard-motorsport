@@ -1,12 +1,13 @@
 // 'use client';
-import SubHero from "@/components/(site)/subhero/subhero";
+import EventHero from "@/components/(site)/subhero/eventhero";
 import styles from "./page.module.css";
 import Label from "@/components/(site)/label/label";
 import Image from "next/image";
 import Events from "@/components/(site)/events/events";
 import Link from "next/link";
 // import { useEffect, useState } from 'react';
-import { FaRegClock, FaLocationDot, FaFlagCheckered, FaRegCalendar } from "react-icons/fa6";
+import { FaRegClock, FaLocationDot, FaFlagCheckered, FaRegCalendar, FaTicket } from "react-icons/fa6";
+import { FaCheckCircle, FaInfoCircle  } from "react-icons/fa";
 import { getEventsDataBySlug } from "@/services/data.service";
 
 export default async function Page({ params }) {
@@ -15,8 +16,7 @@ export default async function Page({ params }) {
 
   if (!event) return <div>Eventet findes ikke</div>;
 
-  const { title, startDate, endDate, image, racetrack, test } =
-    event.attributes;
+  const { title, startDate, endDate, image, racetrack, test, ticket, address } = event.attributes;
   // const {test} = event.attributes.children.text;
 
   // const [eventsData, setEventsData] = useState([]);
@@ -34,41 +34,78 @@ export default async function Page({ params }) {
   //     fetchEventsData();
   // }, [params.id]);
 
-  // const subheroConfig = {
-  //   title: "Event",
-  //   subtitle: "Events",
-  //   image: "/Heros/Om-os.jpg",
-  // };
+  function formatEventDate(start, end) {
+    const optionsMonth = { month: "long" };
+    const optionsYear = { year: "numeric" };
+
+    const startDate = new Date(start);
+    const endDate = new Date(end);
+
+    const month = startDate.toLocaleDateString("da-DK", optionsMonth);
+    const year = startDate.toLocaleDateString("da-DK", optionsYear);
+
+    const dayStart = startDate.getDate(); // ingen punktum
+    const dayEnd = endDate.getDate(); // ingen punktum
+
+    // Hvis start og slutdato er samme måned og år
+    if (
+      startDate.getMonth() === endDate.getMonth() &&
+      startDate.getFullYear() === endDate.getFullYear()
+    ) {
+      return `${month} ${dayStart}-${dayEnd}, ${year}`;
+    }
+
+    // Hvis måned eller år er forskellig
+    const startFormatted = `${startDate.getDate()} ${startDate.toLocaleDateString(
+      "da-DK",
+      optionsMonth
+    )} ${startDate.getFullYear()}`;
+    const endFormatted = `${endDate.getDate()} ${endDate.toLocaleDateString(
+      "da-DK",
+      optionsMonth
+    )} ${endDate.getFullYear()}`;
+
+    return `${startFormatted} - ${endFormatted}`;
+}
+
+  const eventDate = (
+      <>
+        {formatEventDate(startDate,endDate)}
+      </>
+  )
+  const eventTime = (
+      <>
+        {event.attributes.startDate && new Date(event.attributes.startDate).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', })}
+      </>
+  )
+
+  const eventheroConfig = {
+    title: title,
+    slug: title,
+    racetrack: racetrack.data.attributes.name,
+    location: racetrack.data.attributes.location,
+    address: racetrack.data.attributes.address,
+    date: eventDate, 
+    time: eventTime,
+    image: "/Heros/Om-os.jpg",
+  };
 
   return (
     <>
-      {/* <SubHero config={subheroConfig} /> */}
-      <div className={styles.header}>
-        <div className={styles.imageContainer}>
-          {image?.data && (
-            <Image
-              src={image.data.attributes.url}
-              alt={image.data.attributes.alternativeText || ""}
-              width={image.data.attributes.width}
-              height={image.data.attributes.height}
-              className="rounded-xl mb-6"
-            />
-          )}
-        </div>
-      </div>
+      <EventHero config={eventheroConfig} />
 
       <div className="wrapper">
         <div className={styles.eventContainer}>
-          <div className={styles.eventDescription}>
+          <article className={styles.eventDescription}>
             <div>
               <h2>{title}</h2>
                             
-              <section className="prose max-w-none">
+              <div className="prose max-w-none">
                 {test?.map((block, index) => {
                   if (block.type === "heading") {
                     const HeadingTag = `h${block.level}`;
                     return (
-                      <HeadingTag key={index}>
+                      <HeadingTag key={index} className={styles.headingtag}>
                         {block.children.map((child, i) => child.text).join("")}
                       </HeadingTag>
                     );
@@ -76,57 +113,77 @@ export default async function Page({ params }) {
 
                   if (block.type === "paragraph") {
                     return (
-                      <p key={index}>
+                      <p key={index} className={styles.paragraph}>
                         {block.children.map((child, i) => child.text).join("")}
                       </p>
                     );
                   }
 
+                  if (block.type === "list") {
+                    return (
+                    <div className={styles.eventHighlights} key={index}>
+                    <h4>Event Højdepunkter</h4>
+                      <ul  className={styles.list} >
+                        {block.children.map((item, i) => (
+
+                        <li key={i} >
+                          <span>
+                            <FaCheckCircle className={styles.bulletIcon} />
+                          </span>
+                          {item.children.map((child, j) => child.text).join("")}
+                        </li>
+                        ))}
+                      </ul>
+                      </div>
+                    );
+                  }
+
                   return null;
                 })}
-              </section>
+              </div>
             </div>
-          </div>
-          <div className={styles.eventDetails}>
+          </article>
+          <aside className={styles.eventDetails}>
             <div className={styles.eventInfo}>
-              <h3>Event Information</h3>
-              <div className={styles.info}>
-                <span>
-                  <FaRegCalendar className={styles.icon}/>
-                  {new Date(startDate).toLocaleDateString()} –{" "}
-                  {new Date(endDate).toLocaleDateString()}
-                </span>
-              </div>
-              <div className={styles.info}>
-                <span>
-                      <FaRegClock className={styles.icon}/>
-                      kl {event.attributes.startDate && new Date(event.attributes.startDate).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', })}
-                    </span>
-              </div>
-              <div className={styles.info}>
-                <span>
-                  <FaLocationDot className={styles.icon}/> {racetrack.data.attributes.name} –{" "}
-                  {racetrack.data.attributes.location}
-                </span>
-              </div>
-              <div className={styles.info}>
-                <span>
-                  <FaFlagCheckered className={styles.icon}/>
-                  {Number(racetrack.data.attributes.distance).toLocaleString(
-                    "da-DK"
-                  )}{" "}
-                  km
-                </span>
+              <h3> <FaInfoCircle />Event Information</h3>
+              <div className={styles.content}>
+                <div className={styles.info}>
+                  <time dateTime={startDate}>
+                    <FaRegCalendar className={styles.icon}/>
+                    {eventDate}
+                  </time>
+                </div>
+                <div className={styles.info}>
+                  <time dateTime={eventTime}>
+                    <FaRegClock className={styles.icon}/>
+                    Kl {eventTime}
+                  </time>
+                </div>
+                <div className={styles.info}>
+                  <address>
+                    <FaLocationDot className={styles.icon}/> 
+                    {racetrack.data.attributes.address}
+                  </address>
+                </div>
+                <div className={styles.info}>
+                  <span>
+                    <FaFlagCheckered className={styles.icon}/>
+                    {Number(racetrack.data.attributes.distance).toLocaleString(
+                      "da-DK"
+                    )}{" "}
+                    km
+                  </span>
+                </div>
               </div>
             </div>
             <div className={styles.eventTicket}>
-              <h3>Get Your Tickets</h3>
-              <p>Dont miss this incredible racing experience. Secure your tickets now!</p>
-              <Link href="https://example.com/tickets" target="_blank" rel="noopener noreferrer" className={styles.ticketLink}>
-                Køb billet
+              <h3><FaTicket /> Billetter</h3>
+              <p>Tag familie og venner med til en uforglemmelig motorsportsweekend!</p>
+              <Link href={ticket} target="_blank" rel="noopener noreferrer" className={styles.ticketLink}>
+                  <FaTicket /> Køb billetter
               </Link>
             </div>
-          </div>
+          </aside>
           
         </div>
 

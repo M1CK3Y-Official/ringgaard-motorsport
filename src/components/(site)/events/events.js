@@ -131,7 +131,7 @@ const Events = () => {
               
               <label className={styles.mobileDropdown}>
                 Sorteret efter:
-                <select value={selected} onChange={e => setSelectedTab(e.target.value)} className={styles.select}>
+                <select name="option" value={selected} onChange={e => setSelectedTab(e.target.value)} className={styles.select}>
                   {filters.map(filter => {
                     const hasEvents =
                       filter.key === "all"

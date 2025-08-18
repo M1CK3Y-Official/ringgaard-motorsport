@@ -157,12 +157,22 @@
 .desktopText {
   display: none;
 }
+
+.filter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .mobileDropdown {
   display: inline;
 }
 
 .mobileDropdown .select option {
   background: rgb(17 24 39);
+}
+.mobileDropdown .select option:disabled {
+  color: #797979;
 }
 
 .eventsContainer {
@@ -188,6 +198,8 @@
 .eventDescription p {
   color: rgb(156 163 175);
 }
+
+
 
 
 
