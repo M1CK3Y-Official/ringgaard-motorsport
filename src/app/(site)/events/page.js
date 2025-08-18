@@ -23,7 +23,14 @@ export default function Page() {
                     <h2>Kommende Events</h2>
                     <div className='body'>
                         <p>
-                        Join us trackside for the thrilling Danish Legend Car Cup season. Below you&apos;ll find our complete racing schedule, featuring events at Denmark&apos;s premier racing circuits. Each event offers a unique challenge for our team and an exciting experience for spectators.
+                        I 2025 tager vi endnu et år i Legend Car Cuppen, men denne gang i den 3-cylindrede klasse, som er klassen med den nyeste og også hurtigste motor!
+                        <br />
+                        <br />
+                        I 2024 har vi nemlig kørt i den 4-cylindrede klasse, som er den lidt billigere og mere begyndervenlige klasse! Her er det gået rigtig godt med flere sejre og en samlet 4. plads i DM! 
+                        <br />
+                        <br />
+                        Vi er dog rigtig ambitiøse og det er derfor vi rykker over i den anden klasse! Vi skal med helt frem hvor det er rigtig sjovt! Vi skal frem og vinde!
+
                         </p>
                     </div>
                 </div>
