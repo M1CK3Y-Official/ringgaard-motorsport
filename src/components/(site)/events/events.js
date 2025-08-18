@@ -99,6 +99,7 @@ const Events = () => {
         <div className={styles.eventsContainer}>
 
           <div className={styles.bar}>
+
             <div className={styles.options}>
               {filters.map(filter => {
                 const hasEvents =
@@ -106,24 +107,51 @@ const Events = () => {
                     ? eventsData.length > 0
                     : eventsData.some(event =>
                         event.attributes.type.toLowerCase() === filter.key.toLocaleLowerCase()
-                    );
-              return (
-                <button 
-                  key={filter.key} 
-                  className={styles.option} 
-                  role="tab" 
-                  aria-selected={selected === filter.key} 
-                  onClick={() => hasEvents && setSelectedTab(filter.key)} 
-                  disabled={!hasEvents}
+                      );
+                return (
+                  <button 
+                    key={filter.key} 
+                    className={styles.option} 
+                    role="tab" 
+                    aria-selected={selected === filter.key} 
+                    onClick={() => hasEvents && setSelectedTab(filter.key)} 
+                    disabled={!hasEvents}
                   >
                     {filter.label}
                   </button>
-              );
-})}
+                );
+              })}
+            </div>
+
+            <div className={styles.filter}>
+              <FaFilter />{" "}
+              <span className={styles.desktopText}>
+                Sorteret efter: {typeLabels[selected] || selected}
+              </span>
+              
+              <label className={styles.mobileDropdown}>
+                Sorteret efter:
+                <select value={selected} onChange={e => setSelectedTab(e.target.value)} className={styles.select}>
+                  {filters.map(filter => {
+                    const hasEvents =
+                      filter.key === "all"
+                        ? eventsData.length > 0
+                        : eventsData.some(event =>
+                          event.attributes.type.toLowerCase() === filter.key.toLocaleLowerCase()
+                        );
+                      return (  
+                        <option value={filter.key} disabled={!hasEvents} key={filter.key}>
+                          {filter.label}
+                        </option>
+                      );
+                  })}
+                  </select>
+                </label>
               
             </div>
-            <span className={styles.filter}><FaFilter /> Sorteret efter: {typeLabels[selected] || selected}</span>
-            {/* <span className={styles.filter}><FaFilter /> Sorteret efter: {(selected === "all" ? "Alle Events" : selected).split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")}</span> */}
+
+            
+            
           </div>
 
           <div className={styles.eventsList}>
