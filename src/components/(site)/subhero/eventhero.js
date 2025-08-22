@@ -43,10 +43,10 @@ const EventHero = ({config}) => {
     return (
         <header className={styles.eventhero}>
             <Image 
-                src={config.image} 
-                alt="eventhero" 
-                width={4246} 
-                height={2830}
+                src={config.image.url} 
+                alt={config.image.alt} 
+                width={config.image.width} 
+                height={config.image.height}
             />
             
             <div className={styles.overlay}></div>

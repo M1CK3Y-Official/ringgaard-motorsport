@@ -87,7 +87,12 @@ export default async function Page({ params }) {
     address: racetrack.data.attributes.address,
     date: eventDate, 
     time: eventTime,
-    image: "/Heros/Om-os.jpg",
+    image: {
+      'url' : image.data.attributes.url,
+      'width' : image.data.attributes.width,
+      'height' : image.data.attributes.height,
+      'alt' : image.data.attributes.alternativeText || title || "Event billede",
+    }
   };
 
   return (

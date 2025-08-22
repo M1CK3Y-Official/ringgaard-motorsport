@@ -9,7 +9,7 @@ export default function Page() {
     const subheroConfig = {
         title: 'Kommende Events',
         subtitle: 'Events',
-        image: '/Heros/Om-os.jpg'
+        image: '/Heros/Events.jpg'
     }
 
     return (
