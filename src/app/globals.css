@@ -3,7 +3,7 @@
   /* --foreground: #171717; */
   --background: rgb(3, 7, 18);
   /* --heading-color: #60A5FA; */
-  --heading-color: rgb(59, 130, 246);
+  --heading-color: #3b82f6;
   --breadcrumbs-color: rgb(169, 169, 169);
   --tab-background: rgb(59 130 246 / 0.2);
   --text-color: rgb(209, 213, 219);
@@ -171,6 +171,64 @@ main {
     padding: 5rem 2rem;
   }
 } */
+
+
+.errorPage {
+  background: linear-gradient(-45deg, #3b82f6 0%, #3b82f6 20%, white 20%, white 22.5%, var(--background) 22.5%, var(--background) 80%, white 80%, white 82.5%, #3b82f6 82.5%, #3b82f6 100%);
+  /* color: white; */
+  font-size: 1.5rem;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  /* gap: 3rem; */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+.errorPage .title {
+  font-size: clamp(8rem, -2.1818rem + 50.9091vw, 15rem);
+  line-height: 100%;
+  margin: 0;
+  padding: 0;
+
+  color: white;
+}
+
+.errorPage .message {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-direction: column;
+  & p {
+    color: var(--heading-color);
+    font-size: clamp(1.25rem, 0.5227rem + 3.6364vw, 1.75rem);
+  }
+  
+}
+
+.errorPage .message .link {
+  background: var(--heading-color);
+  border: none;
+  padding: 0.75em 1em;
+  border-radius: 0.5rem;
+  font-size: clamp(0.75rem, 0.3864rem + 1.8182vw, 1rem);
+  /* width: 100%; */
+  margin: 0 auto;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.25);
+  transition: background 0.3s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.errorPage .message .link:hover {
+  background: linear-gradient(35deg, var(--car-border) 0%, #3b82f6);
+  transition: background 0.3s ease-in-out;
+}
 
 
 @media (prefers-color-scheme: dark) {
