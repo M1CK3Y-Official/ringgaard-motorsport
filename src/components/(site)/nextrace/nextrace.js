@@ -103,7 +103,7 @@ const NextRace = () => {
             <FaRegCalendar/>
             {formatEventDate(event.attributes.startDate,event.attributes.endDate)}
           </span>
-          <Link className={styles.button} href={'/'}>Details <FaChevronRight/></Link>
+          <Link className={styles.button} href={`/events/${event.attributes.slug}`}>Details <FaChevronRight/></Link>
         </div>
         ))}
         

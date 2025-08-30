@@ -5,10 +5,48 @@ import Label from "@/components/(site)/label/label";
 import Image from "next/image";
 import Events from "@/components/(site)/events/events";
 import Link from "next/link";
-// import { useEffect, useState } from 'react';
 import { FaRegClock, FaLocationDot, FaFlagCheckered, FaRegCalendar, FaTicket } from "react-icons/fa6";
 import { FaCheckCircle, FaInfoCircle  } from "react-icons/fa";
 import { getEventsDataBySlug } from "@/services/data.service";
+
+
+// 🔹 Dynamisk metadata
+export async function generateMetadata({ params }) {
+  const slug = params.slug;
+  const event = await getEventsDataBySlug(slug);
+
+  if (!event) {
+    return {
+      title: "Event ikke fundet",
+      description: "Dette event kunne ikke findes",
+    };
+  }
+
+  const { title, image } = event.attributes;
+
+  return {
+    title: `${title} | Mathias Ringgaard Motorsport`, // Dynamisk title
+    description: `Se detaljer om ${title}`,
+    openGraph: {
+      title: title,
+      description: `Se detaljer om ${title}`,
+      images: [
+        {
+          url: image?.data?.attributes?.url || "/fallback.jpg",
+          width: image?.data?.attributes?.width || 1200,
+          height: image?.data?.attributes?.height || 630,
+          alt: image?.data?.attributes?.alternativeText || title,
+        },
+      ],
+    },
+  };
+}
+
+
+
+
+
+
 
 export default async function Page({ params }) {
   const slug = params.slug;
@@ -17,22 +55,7 @@ export default async function Page({ params }) {
   if (!event) return <div>Eventet findes ikke</div>;
 
   const { title, startDate, endDate, image, racetrack, test, ticket, address } = event.attributes;
-  // const {test} = event.attributes.children.text;
 
-  // const [eventsData, setEventsData] = useState([]);
-
-  // useEffect(() => {
-  //     const fetchEventsData = async () => {
-  //         try {
-  //             const data = await getEventsDataByID(params.id);
-  //             console.log('Fetched Events data by id:', data);
-  //             setEventsData(data);
-  //         } catch (error) {
-  //             console.error('Error fetching events data by id:', error);
-  //         }
-  //     };
-  //     fetchEventsData();
-  // }, [params.id]);
 
   function formatEventDate(start, end) {
     const optionsMonth = { month: "long" };

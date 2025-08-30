@@ -41,6 +41,7 @@
     color: #d1d5db;
     display: flex;
     align-items: center;
+    text-transform: capitalize;
     gap: 0.25rem;
 }
 .date svg, .racetrack svg {
