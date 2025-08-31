@@ -25,7 +25,7 @@ export async function generateMetadata({ params }) {
   const { title, image } = event.attributes;
 
   return {
-    title: `${title} | Mathias Ringgaard Motorsport`, // Dynamisk title
+    title: `${title}`, // Dynamisk title
     description: `Se detaljer om ${title}`,
     openGraph: {
       title: title,

@@ -4,6 +4,10 @@ import Label from '@/components/(site)/label/label';
 import Image from 'next/image';
 import Events from '@/components/(site)/events/events';
 
+export const metadata = {
+    title: "Events",
+}
+
 export default function Page() {
 
     const subheroConfig = {

@@ -3,6 +3,10 @@ import styles from './page.module.css';
 import Label from '@/components/(site)/label/label';
 import Image from 'next/image';
 
+export const metadata = {
+    title: "Om Os",
+}
+
 export default function Page() {
 
     const subheroConfig = {

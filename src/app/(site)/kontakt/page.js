@@ -5,6 +5,10 @@ import SubHero from '@/components/(site)/subhero/subhero';
 import Image from "next/image"
 import Link from 'next/link'
 
+export const metadata = {
+    title: "Kontakt",
+}
+
 export default function Page() {
 
     const subheroConfig = {

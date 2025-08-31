@@ -7,6 +7,10 @@ import Label from '@/components/(site)/label/label';
 import TextContainer from '@/components/(site)/textContainer/textContainer';
 import EventsTeaserSmall from '@/components/(site)/events/eventsTeaserSmall/eventsTeaserSmall';
 
+export const metadata = {
+    title: "Om Bilen",
+}
+
 export default function Page() {
     
     const subheroConfig = {

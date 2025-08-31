@@ -1,7 +1,7 @@
 import styles from './eventhero.module.css'
 import Image from "next/image"
 import Link from 'next/link'
-import {FaChevronRight, FaRegCalendar, FaRegClock, FaLocationDot } from 'react-icons/fa6';
+import {FaChevronRight, FaRegCalendar, FaRegClock, FaLocationDot, FaArrowLeft, FaShareNodes } from 'react-icons/fa6';
 
 function formatEventDate(start, end) {
   const optionsMonth = { month: "long" };
@@ -51,6 +51,11 @@ const EventHero = ({config}) => {
             
             <div className={styles.overlay}></div>
             <div className={styles.overlay}></div>
+
+            <div className={styles.buttonGroup}>
+                <Link href={'/events'} className={styles.button}><span><FaArrowLeft/>Tilbage til Events</span></Link>
+                <Link href={'/events'} className={styles.button}><span><FaShareNodes />Del Event</span></Link>
+            </div>
 
             <div className={styles.header}>
                 <div className={styles.breadCrumbs}>

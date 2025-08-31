@@ -6,6 +6,10 @@ import Image from "next/image"
 import Link from 'next/link'
 import Sponsors from '@/components/(site)/sponsors/sponsors';
 
+export const metadata = {
+    title: "Sponsorer",
+}
+
 export default function Page() {
 
     const subheroConfig = {
