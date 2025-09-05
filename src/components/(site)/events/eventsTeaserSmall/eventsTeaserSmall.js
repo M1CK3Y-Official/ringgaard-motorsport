@@ -7,7 +7,7 @@ import {
   FaCalendar,
   FaFlagCheckered,
   FaLocationDot,
-  FaTrophy,
+  FaTrophy, FaCalendarXmark
 } from "react-icons/fa6";
 import { useEffect, useState } from "react";
 import { getEventsTeaserSmallData } from "@/services/data.service";
@@ -68,11 +68,12 @@ const EventsTeaserSmall = () => {
     fetchEventsTeaserSmallData();
   }, []);
 
+  
+
   return (
     <div className={styles.container}>
-    {isLoading ? (
-            <Spinner />
-        ) : ( <>
+    
+          
             <div className={styles.eventsTeaserSmall}>
               <div className={`${styles.textContainer} textContainer`}>
                 <Label>2025 Sæson</Label>
@@ -86,6 +87,14 @@ const EventsTeaserSmall = () => {
                 </p>
               </div>
 
+              {isLoading ? (
+                <Spinner />
+              ) : eventsData.length === 0 ? (
+                
+                <div className={styles.noEvents}>
+                  <FaCalendarXmark className={styles.icon}/><p> Der er ingen kommende events.</p>
+                </div>
+              ) : ( 
               <div className={styles.eventsContainer}>
                 {eventsData.map((event) => (
                   <div className={styles.eventCard} key={event.id}>
@@ -128,9 +137,10 @@ const EventsTeaserSmall = () => {
                   </div>
                 ))}
               </div>
+              )}
             </div>
-            </>
-        )}
+            
+            
       </div>
   );
 };
