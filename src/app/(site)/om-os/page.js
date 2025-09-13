@@ -2,6 +2,8 @@ import SubHero from '@/components/(site)/subhero/subhero';
 import styles from './page.module.css';
 import Label from '@/components/(site)/label/label';
 import Image from 'next/image';
+import TimeLine from '@/components/(site)/timeline/timeline';
+import Team from '@/components/(site)/team/team';
 
 export const metadata = {
     title: "Om Os",
@@ -18,6 +20,10 @@ export default function Page() {
     return (
         <>
             <SubHero config={subheroConfig} />
+
+            <Team></Team>
+            <TimeLine></TimeLine>
+            
 
             <div className="wrapper">
                 

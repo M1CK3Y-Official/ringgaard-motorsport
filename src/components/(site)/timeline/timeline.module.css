@@ -1,0 +1,133 @@
+.timeline {
+    text-align: center;
+}
+
+.title span {
+    color: white;
+}
+
+.title {
+    margin-bottom: 1rem;
+    font-size: 2.25rem;
+}
+.intro  {
+    color: rgb(156 163 175);
+    max-width: 42rem;
+    margin: 0 auto;
+}
+
+
+
+/* The actual timeline (the vertical ruler) */
+.tree {
+  margin: 0 auto;
+  text-align: left;
+
+  & .wrap {
+    position: relative;
+  }
+}
+
+.middle {
+    position: absolute;
+    width: 1px;
+    background-color: rgb(59 130 246 / 0.3);
+    left: 50%;
+    bottom: 0;
+    top: 0;
+    /* --tw-translate-x: -50%; */
+    transform: translate(-50%, 0) rotate(0) skewX(0) skewY(0) scaleX(1) scaleY(1);
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    position: relative;
+    margin-bottom: 3rem;
+
+    
+}
+
+.container:nth-of-type(odd) {
+    flex-direction: row-reverse;
+
+    & .contentContainer {
+        padding-right: unset;
+        padding-left: 2rem;
+    }
+}
+
+.contentContainer {
+    padding-right: 2rem;
+    width: 41.666667%;
+    margin-left: 0;
+}
+
+.content {
+    background-color: rgb(17 24 39);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgb(31 41 55);
+}
+
+.contentTitle {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    & h3 {
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+    }
+    & h3:first-of-type {
+        color: var(--heading-color);
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    & .icon {
+        aspect-ratio: 1;
+        width: fit-content;
+        padding: 0.5rem;
+        font-size: 1.5rem;
+        color: var(--heading-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(59 130 246 / 0.1);
+        border-radius: 0.5rem;
+    }
+}
+
+.description {
+    margin-bottom: 1rem;
+    color: var(--text-color);
+    line-height: 1.5rem;
+}
+
+
+.dot {
+    position: absolute;
+    left: 50%;
+    background-color: var(--heading-color);
+    border-radius: 9999px;
+    width: 0.5rem;
+    height: 0.5rem;
+    z-index: 10;
+    top: 50%;
+    bottom: 50%;
+    transform: translate(-50%, 0) rotate(0) skewX(0) skewY(0) scaleX(1) scaleY(1);
+}
+
+.result {
+    color: orange;
+    display: flex;
+    align-items: center;
+    gap: .25rem;
+
+    & .icon {
+        font-size: .875rem;
+    }
+}
