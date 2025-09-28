@@ -130,7 +130,7 @@ const EventsTeaserSmall = () => {
                           </span>
                         </div>
                       </div>
-                      <Link className={styles.button} href="/events">
+                      <Link className={styles.button} href={`/events/${event.attributes.slug}`}>
                         View Details
                       </Link>
                     </div>

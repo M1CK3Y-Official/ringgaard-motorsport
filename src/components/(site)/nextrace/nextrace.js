@@ -70,7 +70,9 @@ const NextRace = () => {
         duration: 500,
         });
     }, []);
+    console.log(eventsData.length)
   return (
+
     
     <div className={styles.nextRace} data-aos="fade-left">
       

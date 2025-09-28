@@ -178,10 +178,10 @@ const EventsTeaserBig = () => {
                   data-aos-once="true"
                   data-aos-delay="150"
                 >
-                  <Link className={styles.button} href="/events">
+                  <Link className='button' href={`/events/${event.attributes.slug}`}>
                     Se Detaljer
                   </Link>
-                  <Link className={styles.button} href="/events">
+                  <Link className='button' href="/events">
                     Løbskalender
                   </Link>
                 </div>

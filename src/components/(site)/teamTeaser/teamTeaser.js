@@ -81,8 +81,8 @@ return (
 
                             <div className={styles.buttonContainer} data-aos="fade-right" data-aos-once="true" >
 
-                            <Link href="/team/mathias" className={styles.button}>Lær mere om Mathias</Link>
-                            <Link href="/team" className={styles.button}>Mød hele teamet</Link>
+                                <Link href="/team/mathias" className='button'>Lær mere om Mathias</Link>
+                                <Link href="/team" className='button'>Mød hele teamet</Link>
                             </div>
                     </div>
              

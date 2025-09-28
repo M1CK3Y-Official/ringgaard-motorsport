@@ -55,7 +55,7 @@ const SponsorsTeaser = () => {
 
           </div>
 
-          <Link href="/sponsors" data-aos="fade-right" data-aos-once="true" className={styles.button}>Se alle sponsorer <FaArrowRightLong /></Link>
+          <Link href="/sponsorer" data-aos="fade-right" data-aos-once="true" className='button alt'>Se alle sponsorer <FaArrowRightLong /></Link>
           
       </div>
     </section>

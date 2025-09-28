@@ -39,8 +39,8 @@ const Hero = () => {
                     <p className={styles.subTitle}>Oplev suset ved Legend Car-ræs med Mathias Ringgaard Motorsport. Følg med på vores rejse mod toppen af dansk motorsport.</p>
 
                     <div className={styles.buttons}>
-                        <Link href="/bilen" className={styles.button}>Udforsk Bilen</Link>
-                        <Link href="/events" className={styles.button}>Løbskalender</Link>
+                        <Link href="/bilen" className='button'>Udforsk Bilen</Link>
+                        <Link href="/events" className='button'>Løbskalender</Link>
                     </div>
 
                     <div className={styles.stats}>
