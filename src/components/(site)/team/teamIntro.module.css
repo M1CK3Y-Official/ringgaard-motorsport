@@ -33,14 +33,42 @@
 }
 
 .title {
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
     font-size: 2.25rem;
 }
 .body {
     text-align: start;
+    gap: 2rem;
 }
 
 
 .title span {
     color: white;
+}
+
+.line {
+    margin: 2rem 0;
+    border-color: rgba(31, 41, 55, 0.33);
+}
+
+.teamInfo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+    justify-content: space-evenly;
+}
+
+.infoGroup {
+    display: flex;
+    flex-direction: column;
+    /* gap: .25rem; */
+    & h3 {
+        font-size: 1.875rem;
+        color: var(--heading-color);
+    }
+    & span {
+        color: #9ca3af;
+        font-size: 1.125rem;
+    }
 }

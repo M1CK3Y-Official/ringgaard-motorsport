@@ -5,6 +5,7 @@ import Image from 'next/image';
 import TimeLine from '@/components/(site)/timeline/timeline';
 import Team from '@/components/(site)/team/team';
 import TeamIntro from '@/components/(site)/team/teamIntro';
+import TeamOwner from '@/components/(site)/team/teamOwner';
 
 export const metadata = {
     title: "Om Os",
@@ -23,6 +24,7 @@ export default function Page() {
             <SubHero config={subheroConfig} />
 
             <TeamIntro></TeamIntro>
+            <TeamOwner></TeamOwner>
             <TimeLine></TimeLine>
             <Team></Team>
             
