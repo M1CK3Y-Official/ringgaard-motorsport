@@ -36,7 +36,7 @@ const TeamOwner = () => {
                 <div className={styles.text}>
 
                     <div className={`${styles.textContainer} textContainer`}>
-                        <Label>MØD KØREreN</Label>
+                        {/* <Label>MØD KØREreN</Label> */}
                         <h2 className={styles.title}>
                             <span>Hvordan Det Hele </span>Startede
                         </h2>
