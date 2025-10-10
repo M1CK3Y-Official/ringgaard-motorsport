@@ -215,8 +215,8 @@ const Events = () => {
                       </div>
 
                       <div className={styles.eventDescription}>
-                        {event.attributes.test &&
-                          event.attributes.test.map((item, idx) => {
+                        {event.attributes.description &&
+                          event.attributes.description.map((item, idx) => {
                             if (item.type === "paragraph") {
                               return (
                                 <div key={idx} className={styles.paragraph}>

@@ -86,8 +86,7 @@ const TimeLine = () => {
                                         <h3>Første test i racerbil</h3>
                                     </div>
                                 </div>
-                                <p className={styles.description}>Mathias began his racing journey with karting at local Danish tracks, showing immediate promise and natural talent.</p>
-                                <p className={styles.result}><span className={styles.icon}><FaTrophy/></span>Regional Karting Championship - 3rd Place</p>
+                                <p className={styles.description}>Første test af racerbil på bane, hvor der blev testet både Legend Car og Formel 5 racere.</p>
                             </div>
                         </div>
                     </div>
@@ -101,11 +100,11 @@ const TimeLine = () => {
                                     </div>
                                     <div>
                                         <h3>2024</h3>
-                                        <h3>4-Cyl Legend Car Cup</h3>
+                                        <h3>4-Cylindret Legend Car Cup</h3>
                                     </div>
                                 </div>
-                                <p className={styles.description}>Mathias began his racing journey with karting at local Danish tracks, showing immediate promise and natural talent.</p>
-                                <p className={styles.result}><span className={styles.icon}><FaTrophy/></span>Regional Karting Championship - 3rd Place</p>
+                                <p className={styles.description}>Gennemførte vores første sæson i dansk banesport.</p>
+                                <p className={styles.result}><span className={styles.icon}><FaTrophy/></span>Legend Car Cup - 4. Plads</p>
                             </div>
                         </div>
                     </div>
@@ -119,11 +118,11 @@ const TimeLine = () => {
                                     </div>
                                     <div>
                                         <h3>2025</h3>
-                                        <h3>3-Cyl Legend Car Cup</h3>
+                                        <h3>3-Cylindret Legend Car Cup</h3>
                                     </div>
                                 </div>
-                                <p className={styles.description}>Mathias began his racing journey with karting at local Danish tracks, showing immediate promise and natural talent.</p>
-                                <p className={styles.result}><span className={styles.icon}><FaTrophy/></span>Regional Karting Championship - 3rd Place</p>
+                                <p className={styles.description}>Vi slutter som bedste kører af dem, der har kørt deres første sæson i den 3-cylindrede klasse.</p>
+                                <p className={styles.result}><span className={styles.icon}><FaTrophy/></span>Legend Car Cup - 11. Plads</p>
                             </div>
                         </div>
                     </div>

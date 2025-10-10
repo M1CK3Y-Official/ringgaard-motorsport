@@ -54,7 +54,7 @@ export default async function Page({ params }) {
 
   if (!event) return <div>Eventet findes ikke</div>;
 
-  const { title, startDate, endDate, image, racetrack, test, ticket, address } = event.attributes;
+  const { title, startDate, endDate, image, racetrack, description, ticket, address } = event.attributes;
 
 
   function formatEventDate(start, end) {
@@ -129,7 +129,7 @@ export default async function Page({ params }) {
               <h2>{title}</h2>
                             
               <div className="prose max-w-none">
-                {test?.map((block, index) => {
+                {description?.map((block, index) => {
                   if (block.type === "heading") {
                     const HeadingTag = `h${block.level}`;
                     return (
