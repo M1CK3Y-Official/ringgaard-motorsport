@@ -72,45 +72,50 @@ const NextRace = () => {
     }, []);
     console.log(eventsData.length)
   return (
-
-    
-    <div className={styles.nextRace} data-aos="fade-left">
-      
-      <div className={`${styles.mobile} ${isExpanded ? styles.open : ''}`} onClick={() => setIsExpanded(!isExpanded)}>
-        <FaFlagCheckered className={styles.icon} />
-      </div>
-      <div className={`${styles.content} ${isExpanded ? styles.open : ''}`}>
-
-        <div className={styles.actions}>
-          
-          <div className={styles.status}>
-            <div className={styles.dot}></div>
-            <span className={styles.title}>NÆSTE LØB</span>
-          </div>
-
-          <div className={`${styles.mobileClose} ${isExpanded ? styles.open : ''}`} onClick={() => setIsExpanded(!isExpanded)}>
-            <FaXmark className={styles.icon} />
-          </div>
-
-        </div>
-
-        {eventsData.map((event) => (
-        <div className={styles.event} key={event.id}>
-          <h4 className={styles.track}>{event.attributes.title}</h4>
-          <span className={styles.racetrack}>
-            <FaLocationDot/>
-            {event.attributes.racetrack.data.attributes.name}
-          </span>
-          <span className={styles.date}>
-            <FaRegCalendar/>
-            {formatEventDate(event.attributes.startDate,event.attributes.endDate)}
-          </span>
-          <Link className={styles.button} href={`/events/${event.attributes.slug}`}>Details <FaChevronRight/></Link>
-        </div>
-        ))}
+    <>
+      {eventsData.length > 0 && (
         
+    
+    
+      <div className={styles.nextRace} data-aos="fade-left">
+        
+        <div className={`${styles.mobile} ${isExpanded ? styles.open : ''}`} onClick={() => setIsExpanded(!isExpanded)}>
+          <FaFlagCheckered className={styles.icon} />
+        </div>
+        <div className={`${styles.content} ${isExpanded ? styles.open : ''}`}>
+
+          <div className={styles.actions}>
+            
+            <div className={styles.status}>
+              <div className={styles.dot}></div>
+              <span className={styles.title}>NÆSTE LØB</span>
+            </div>
+
+            <div className={`${styles.mobileClose} ${isExpanded ? styles.open : ''}`} onClick={() => setIsExpanded(!isExpanded)}>
+              <FaXmark className={styles.icon} />
+            </div>
+
+          </div>
+
+          {eventsData.map((event) => (
+          <div className={styles.event} key={event.id}>
+            <h4 className={styles.track}>{event.attributes.title}</h4>
+            <span className={styles.racetrack}>
+              <FaLocationDot/>
+              {event.attributes.racetrack.data.attributes.name}
+            </span>
+            <span className={styles.date}>
+              <FaRegCalendar/>
+              {formatEventDate(event.attributes.startDate,event.attributes.endDate)}
+            </span>
+            <Link className={styles.button} href={`/events/${event.attributes.slug}`}>Details <FaChevronRight/></Link>
+          </div>
+          ))}
+          
+        </div>
       </div>
-    </div>
+      )}
+    </>
   )
 };
 

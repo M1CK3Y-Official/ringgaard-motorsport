@@ -103,112 +103,119 @@ const EventsTeaserBig = () => {
   }, []);
 
   return (
-    <section className={styles.eventsTeaserBig}>
-      <div className="sectionWrapper">
-        {eventsData.map((event) => (
-          <div className={styles.eventContainer} key={event.id}>
-            <div className={styles.eventImage}>
-              <Image
-                src={event.attributes.image.data.attributes.url}
-                alt={event.attributes.title}
-                width={event.attributes.image.data.attributes.width}
-                height={event.attributes.image.data.attributes.height}
-              />
-              <div className={styles.overlay}></div>
-            </div>
-            <div className={styles.eventInfo}>
-              <Label>Næste Løb</Label>
+    <>
+      {eventsData.length > 0 && (
 
-              <h2
-                className={styles.title}
-                data-aos="fade-right"
-                data-aos-once="true"
-              >
-                <span>{event.attributes.title}</span>
-              </h2>
-
-              <div className={styles.eventData}>
-                <div className={styles.eventDetails}>
-                  <div
-                    className={styles.eventDate}
-                    data-aos="fade-right"
-                    data-aos-once="true"
-                  >
-                    <span>
-                      <FaCalendar className={styles.icon} />
-                    </span>
-                    <span>
-                      {formatEventDate(
-                        event.attributes.startDate,
-                        event.attributes.endDate
-                      )}
-                    </span>
-                  </div>
-
-                  <div
-                    className={styles.eventLocation}
-                    data-aos="fade-right"
-                    data-aos-once="true"
-                    data-aos-delay="50"
-                  >
-                    <span>
-                      <FaLocationDot className={styles.icon} />
-                    </span>
-                    <span>
-                      {event.attributes.racetrack.data.attributes.location}
-                    </span>
-                  </div>
-
-                  <div
-                    className={styles.eventRound}
-                    data-aos="fade-right"
-                    data-aos-once="true"
-                    data-aos-delay="100"
-                  >
-                    <span>
-                      <FaFlagCheckered className={styles.icon} />
-                    </span>
-                    <span>15 Omgange</span>
-                  </div>
-                </div>
-
-                <div
-                  className={styles.eventButtons}
-                  data-aos="fade-right"
-                  data-aos-once="true"
-                  data-aos-delay="150"
-                >
-                  <Link className='button' href={`/events/${event.attributes.slug}`}>
-                    Se Detaljer
-                  </Link>
-                  <Link className='button' href="/events">
-                    Løbskalender
-                  </Link>
-                </div>
-
-                <div
-                  className={styles.eventCountdown}
-                  data-aos="fade-right"
-                  data-aos-once="true"
-                  data-aos-delay="200"
-                >
-                  <Countdown
-                    date={new Date(event.attributes.startDate)}
-                    renderer={(props) =>
-                      renderer({
-                        ...props,
-                        startDate: new Date(event.attributes.startDate),
-                        endDate: new Date(event.attributes.endDate),
-                      })
-                    }
+    
+        <section className={styles.eventsTeaserBig}>
+          <div className="sectionWrapper">
+            {eventsData.map((event) => (
+              <div className={styles.eventContainer} key={event.id}>
+                <div className={styles.eventImage}>
+                  <Image
+                    src={event.attributes.image.data.attributes.url}
+                    alt={event.attributes.title}
+                    width={event.attributes.image.data.attributes.width}
+                    height={event.attributes.image.data.attributes.height}
                   />
+                  <div className={styles.overlay}></div>
+                </div>
+                <div className={styles.eventInfo}>
+                  <Label>Næste Løb</Label>
+
+                  <h2
+                    className={styles.title}
+                    data-aos="fade-right"
+                    data-aos-once="true"
+                  >
+                    <span>{event.attributes.title}</span>
+                  </h2>
+
+                  <div className={styles.eventData}>
+                    <div className={styles.eventDetails}>
+                      <div
+                        className={styles.eventDate}
+                        data-aos="fade-right"
+                        data-aos-once="true"
+                      >
+                        <span>
+                          <FaCalendar className={styles.icon} />
+                        </span>
+                        <span>
+                          {formatEventDate(
+                            event.attributes.startDate,
+                            event.attributes.endDate
+                          )}
+                        </span>
+                      </div>
+
+                      <div
+                        className={styles.eventLocation}
+                        data-aos="fade-right"
+                        data-aos-once="true"
+                        data-aos-delay="50"
+                      >
+                        <span>
+                          <FaLocationDot className={styles.icon} />
+                        </span>
+                        <span>
+                          {event.attributes.racetrack.data.attributes.location}
+                        </span>
+                      </div>
+
+                      <div
+                        className={styles.eventRound}
+                        data-aos="fade-right"
+                        data-aos-once="true"
+                        data-aos-delay="100"
+                      >
+                        <span>
+                          <FaFlagCheckered className={styles.icon} />
+                        </span>
+                        <span>15 Omgange</span>
+                      </div>
+                    </div>
+
+                    <div
+                      className={styles.eventButtons}
+                      data-aos="fade-right"
+                      data-aos-once="true"
+                      data-aos-delay="150"
+                    >
+                      <Link className='button' href={`/events/${event.attributes.slug}`}>
+                        Se Detaljer
+                      </Link>
+                      <Link className='button' href="/events">
+                        Løbskalender
+                      </Link>
+                    </div>
+
+                    <div
+                      className={styles.eventCountdown}
+                      data-aos="fade-right"
+                      data-aos-once="true"
+                      data-aos-delay="200"
+                    >
+                      <Countdown
+                        date={new Date(event.attributes.startDate)}
+                        renderer={(props) =>
+                          renderer({
+                            ...props,
+                            startDate: new Date(event.attributes.startDate),
+                            endDate: new Date(event.attributes.endDate),
+                          })
+                        }
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
+            ))}
           </div>
-        ))}
-      </div>
-    </section>
+        </section>
+
+      )}
+    </>
   );
 };
 
