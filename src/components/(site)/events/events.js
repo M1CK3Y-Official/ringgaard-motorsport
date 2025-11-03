@@ -4,7 +4,7 @@ import styles from "./events.module.css";
 import { getEventsData } from "@/services/data.service";
 import Image from "next/image";
 import Link from "next/link";
-import { FaCircleInfo, FaRegCalendar, FaLocationDot, FaTrophy, FaRegClock, FaFlagCheckered, FaFilter   } from "react-icons/fa6";
+import { FaCircleInfo, FaRegCalendar, FaLocationDot, FaTrophy, FaRegClock, FaFlagCheckered, FaFilter, FaCalendarXmark   } from "react-icons/fa6";
 import { FaExternalLinkAlt  } from "react-icons/fa";
 import Spinner from '@/components/(site)/spinner/spinner';
 
@@ -161,7 +161,11 @@ const Events = () => {
                   
                 </div>
 
+                {eventsData.length > 0 ? (
+                
                 <div className={styles.eventsList}>
+
+
                 {filteredEvents.map((event) => (
                   <div key={event.id} className={styles.eventCard}>
 
@@ -262,6 +266,11 @@ const Events = () => {
                   </div>
                 ))}
                 </div>
+                ) : (
+                  <div className={styles.noEvents}>
+                  <FaCalendarXmark className={styles.icon}/><p> Der er ingen kommende events.</p>
+                </div>
+                )}
               </div>
             </div>
             )}
