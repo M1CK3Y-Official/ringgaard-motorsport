@@ -1,3 +1,57 @@
 .team {
-    
+    text-align: center;
+}
+
+.title span {
+    color: white;
+}
+
+.title {
+    margin-bottom: 1rem;
+    font-size: 2.25rem;
+}
+.intro  {
+    color: rgb(156 163 175);
+    max-width: 42rem;
+    margin: 0 auto;
+}
+
+.teamGrid {
+     /**
+   * User input values.
+   */
+  --grid-layout-gap: 2rem;
+  --grid-column-count: 3;
+  --grid-item--min-width: 100px;
+
+  /**
+   * Calculated values.
+   */
+  --gap-count: calc(var(--grid-column-count) - 1);
+  --total-gap-width: calc(var(--gap-count) * var(--grid-layout-gap));
+  --grid-item--max-width: calc((100% - var(--total-gap-width)) / var(--grid-column-count));
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(max(var(--grid-item--min-width), var(--grid-item--max-width)), 1fr));
+  grid-gap: var(--grid-layout-gap);
+
+
+    & .teamMember {
+        background-color: red;
+        width: 100%;
+        height: auto;
+
+        & .teamMemberImage {
+            /* width: 100%; */
+            /* display: block; */
+            height: 16rem;
+
+            & img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+            }
+        }
+    }
 }
